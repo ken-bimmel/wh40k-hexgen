@@ -1,93 +1,113 @@
+import Annihilation from "../maps/Annihilation.svg";
+
 const PRIMARY_OBJECTIVES = [
   {
     name: "Incisive Attack",
     description: "",
     category: "Combat Patrol",
+    map: Annihilation,
   },
   {
     name: "Outriders",
     description: "",
     category: "Combat Patrol",
+    map: Annihilation,
   },
   {
     name: "Encircle",
     description: "",
     category: "Combat Patrol",
+    map: Annihilation,
   },
   {
     name: "Divide and Conquer",
     description: "",
     category: "Incursion Missions",
+    map: Annihilation,
   },
   {
     name: "Crossfire",
     description: "",
     category: "Incursion Missions",
+    map: Annihilation,
   },
   {
     name: "Centre Ground",
     description: "",
     category: "Incursion Missions",
+    map: Annihilation,
   },
   {
     name: "Forward Push",
     description: "",
     category: "Incursion Missions",
+    map: Annihilation,
   },
   {
     name: "Ransack",
     description: "",
     category: "Incursion Missions",
+    map: Annihilation,
   },
   {
     name: "Shifting Front",
     description: "",
     category: "Incursion Missions",
+    map: Annihilation,
   },
   {
     name: "Retrieval Mission",
     description: "",
     category: "Strike Force Missions",
+    map: Annihilation,
   },
   {
     name: "Front-line Warfare",
     description: "",
     category: "Strike Force Missions",
+    map: Annihilation,
   },
   {
     name: "The Four Pillars",
     description: "",
     category: "Strike Force Missions",
+    map: Annihilation,
   },
   {
     name: "No Man's Land",
     description: "",
     category: "Strike Force Missions",
+    map: Annihilation,
   },
   {
     name: "Scorched Earth",
     description: "",
     category: "Strike Force Missions",
+    map: Annihilation,
   },
   {
     name: "Vital Intelligence",
     description: "",
     category: "Strike Force Missions",
+    map: Annihilation,
   },
   {
     name: "Lines of Battle",
     description: "",
     category: "Onslaught Missions",
+    map: Annihilation,
   },
   {
     name: "All-out War",
     description: "",
     category: "Onslaught Missions",
+    map: Annihilation,
   },
   {
     name: "Pathway to Glory",
     description: "",
     category: "Onslaught Missions",
+    map: Annihilation,
   },
   //   {
   //     name: "Incisive Attack",
@@ -98,41 +118,49 @@ const PRIMARY_OBJECTIVES = [
     name: "Objective Drop",
     description: "",
     category: "Open War",
+    map: Annihilation,
   },
   {
     name: "Search and Secure",
     description: "",
     category: "Open War",
+    map: Annihilation,
   },
   {
     name: "Storm Their Lines",
     description: "",
     category: "Open War",
+    map: Annihilation,
   },
   {
     name: "Stand Off",
     description: "",
     category: "Open War",
+    map: Annihilation,
   },
   {
     name: "The Prize",
     description: "",
     category: "Open War",
+    map: Annihilation,
   },
   {
     name: "Take & Hold",
     description: "",
     category: "Open War",
+    map: Annihilation,
   },
   {
     name: "War of Attrition",
     description: "",
     category: "Open War",
+    map: Annihilation,
   },
   {
     name: "Domination",
     description: "",
     category: "Open War",
+    map: Annihilation,
   },
 ];
 
