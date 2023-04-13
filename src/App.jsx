@@ -50,6 +50,7 @@ function App() {
 
   const [twists, setTwists] = useState(TWISTS.map((obj) => obj.name));
   const [numberOfTwists, setNumberOfTwists] = useState(1);
+  const [showTwist, setShowTwist] = useState(false);
 
   const [ruses, setRuses] = useState(RUSES.map((obj) => obj.name));
   const [showRuse, setShowRuse] = useState(false);
@@ -57,6 +58,7 @@ function App() {
   const [suddenDeaths, setSuddenDeaths] = useState(
     SUDDEN_DEATH_CONDITIONS.map((obj) => obj.name)
   );
+  const [showSuddenDeath, setShowSuddenDeath] = useState(false);
 
   const [battlefield, setBattlefield] = useState({
     primaryObjective: null,
@@ -98,6 +100,9 @@ function App() {
   const handleNumberOfTwistsChange = (event) => {
     setNumberOfTwists(event.target.value);
   };
+  const toggleShowTwist = () => {
+    setShowTwist(!showTwist);
+  };
 
   const handleRusesChange = (event) => {
     const {
@@ -120,6 +125,9 @@ function App() {
       // On autofill we get a stringified value.
       typeof value === "string" ? value.split(",") : value
     );
+  };
+  const toggleShowSuddenDeath = () => {
+    setShowSuddenDeath(!showSuddenDeath);
   };
 
   const generateBattlefield = () => {
@@ -144,6 +152,9 @@ function App() {
 
     console.log(battlefieldConditions);
     setBattlefield(battlefieldConditions);
+    setShowRuse(false);
+    setShowTwist(false);
+    setShowSuddenDeath(false);
   };
 
   return (
@@ -380,17 +391,41 @@ function App() {
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="h6">Twists</Typography>
-              <Typography variant="subtitle1" style={{ paddingLeft: "16px" }}>
-                {battlefield.twist.map((e, index) =>
-                  index < battlefield.twist.length - 1 ? `${e}, ` : e
+              <Typography variant="h6">
+                Twist{battlefield.twist.length > 1 ? "s" : null}
+              </Typography>
+              <Typography
+                variant="subtitle1"
+                style={showTwist ? { paddingLeft: "16px" } : null}
+              >
+                {showTwist ? (
+                  <span onClick={toggleShowTwist}>
+                    {battlefield.twist.map((e, index) =>
+                      index < battlefield.twist.length - 1 ? `${e}, ` : e
+                    )}
+                  </span>
+                ) : (
+                  <Button variant="contained" onClick={toggleShowTwist}>
+                    Show Twist{battlefield.twist.length > 1 ? "s" : null}
+                  </Button>
                 )}
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="h6">Sudden Death Condition</Typography>
-              <Typography variant="subtitle1" style={{ paddingLeft: "16px" }}>
-                {battlefield.suddenDeath}
+              <Typography variant="h6">Sudden Death</Typography>
+              <Typography
+                variant="subtitle1"
+                style={showSuddenDeath ? { paddingLeft: "16px" } : null}
+              >
+                {showSuddenDeath ? (
+                  <span onClick={toggleShowSuddenDeath}>
+                    {battlefield.suddenDeath}
+                  </span>
+                ) : (
+                  <Button variant="contained" onClick={toggleShowSuddenDeath}>
+                    Show Sudden Death
+                  </Button>
+                )}
               </Typography>
             </Grid>
             <Grid item>
