@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/wh40k-hexgen/static/css/main.073c9b0a.css",
-    "main.js": "/wh40k-hexgen/static/js/main.4441759e.js",
+    "main.js": "/wh40k-hexgen/static/js/main.299d5b1f.js",
     "static/media/Crossfire2.webp": "/wh40k-hexgen/static/media/Crossfire2.be8aab5d5e6a2ffceaab.webp",
     "static/media/VitalIntelligence.webp": "/wh40k-hexgen/static/media/VitalIntelligence.1fd18baa0847dbcbfa3f.webp",
     "static/media/Encircle.webp": "/wh40k-hexgen/static/media/Encircle.ddd32058e857525269eb.webp",
@@ -34,10 +34,10 @@
     "static/media/OpenWar12.png": "/wh40k-hexgen/static/media/OpenWar12.ba37aa684f47b8560ad9.png",
     "index.html": "/wh40k-hexgen/index.html",
     "main.073c9b0a.css.map": "/wh40k-hexgen/static/css/main.073c9b0a.css.map",
-    "main.4441759e.js.map": "/wh40k-hexgen/static/js/main.4441759e.js.map"
+    "main.299d5b1f.js.map": "/wh40k-hexgen/static/js/main.299d5b1f.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.4441759e.js"
+    "static/js/main.299d5b1f.js"
   ]
 }
