@@ -160,7 +160,6 @@ function App() {
     const ruse = getRandomFromArray(ruses);
     const suddenDeath = getRandomFromArray(suddenDeaths);
     const twist = [];
-    console.log(numberOfTwists);
     if (numberOfTwists > 0) {
       for (let i = 0; i < numberOfTwists; i++) {
         twist.push(getRandomFromArray(twists));
@@ -201,7 +200,6 @@ function App() {
       map,
     };
 
-    console.log(battlefieldConditions);
     setBattlefield(battlefieldConditions);
     setShowRuse(false);
     setShowTwist(false);
@@ -481,7 +479,7 @@ function App() {
                   >
                     <Grid item>
                       <Button variant="contained" onClick={generateBattlefield}>
-                        Generate Battlefield
+                        Generate a Battlefield
                       </Button>
                     </Grid>
                   </Grid>
