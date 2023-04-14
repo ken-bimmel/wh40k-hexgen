@@ -71,6 +71,9 @@ function App() {
     ruse: null,
     suddenDeath: null,
     twist: [],
+    terrain: null,
+    winnerOptions: [],
+    loserOptions: [],
   });
 
   const [winnerSelection, setWinnerSelection] = useState(W_ONE_OF_ONE);
@@ -479,128 +482,145 @@ function App() {
       </Grid>
       <Grid item style={{ maxWidth: "100%" }}>
         <Card style={{ margin: "16px", padding: "16px" }}>
-          <Grid container direction="column" spacing={4}>
-            <Grid item>
-              <Typography variant="h4">Primary Objective</Typography>
-              <Typography variant="h6" style={{ paddingLeft: "16px" }}>
-                {battlefield.primaryObjective?.name}
-              </Typography>
-              <Typography variant="body" style={{ paddingLeft: "16px" }}>
-                {battlefield.primaryObjective?.description}
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="h4">Secondary Objective</Typography>
-              <Typography variant="h6" style={{ paddingLeft: "16px" }}>
-                {battlefield.secondaryObjective?.name}
-              </Typography>
-              <Typography variant="body" style={{ paddingLeft: "16px" }}>
-                {battlefield.secondaryObjective?.description}
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="h4">
-                Twist{battlefield.twist.length > 1 ? "s" : null}
-              </Typography>
-              {showTwist ? (
-                <div onClick={toggleShowTwist}>
-                  {battlefield.twist.map((twist) => (
-                    <>
+          <Grid container direction="row" justifyContent="space-around">
+            <Grid item xs={6}>
+              <Grid container direction="column" spacing={4}>
+                <Grid item>
+                  <Typography variant="h4">Primary Objective</Typography>
+                  <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                    {battlefield.primaryObjective?.name}
+                  </Typography>
+                  <Typography variant="body" style={{ paddingLeft: "16px" }}>
+                    {battlefield.primaryObjective?.description}
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography variant="h4">Secondary Objective</Typography>
+                  <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                    {battlefield.secondaryObjective?.name}
+                  </Typography>
+                  <Typography variant="body" style={{ paddingLeft: "16px" }}>
+                    {battlefield.secondaryObjective?.description}
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography variant="h4">
+                    Twist{battlefield.twist.length > 1 ? "s" : null}
+                  </Typography>
+                  {showTwist ? (
+                    <div onClick={toggleShowTwist}>
+                      {battlefield.twist.map((twist) => (
+                        <>
+                          <Typography
+                            variant="h6"
+                            style={{ paddingLeft: "16px" }}
+                          >
+                            {twist.name}
+                          </Typography>
+                          <Typography
+                            variant="body"
+                            style={{ paddingLeft: "16px" }}
+                          >
+                            {twist.description}
+                          </Typography>
+                        </>
+                      ))}
+                    </div>
+                  ) : (
+                    <Button variant="contained" onClick={toggleShowTwist}>
+                      Show Twist{battlefield.twist.length > 1 ? "s" : null}
+                    </Button>
+                  )}
+                </Grid>
+                <Grid item>
+                  <Typography variant="h4">Sudden Death</Typography>
+                  {showSuddenDeath ? (
+                    <div onClick={toggleShowSuddenDeath}>
                       <Typography variant="h6" style={{ paddingLeft: "16px" }}>
-                        {twist.name}
+                        {battlefield.suddenDeath?.name}
                       </Typography>
                       <Typography
                         variant="body"
                         style={{ paddingLeft: "16px" }}
                       >
-                        {twist.description}
+                        {battlefield.suddenDeath?.description}
                       </Typography>
-                    </>
-                  ))}
-                </div>
-              ) : (
-                <Button variant="contained" onClick={toggleShowTwist}>
-                  Show Twist{battlefield.twist.length > 1 ? "s" : null}
-                </Button>
-              )}
+                    </div>
+                  ) : (
+                    <Button variant="contained" onClick={toggleShowSuddenDeath}>
+                      Show Sudden Death
+                    </Button>
+                  )}
+                </Grid>
+                <Grid item>
+                  <Typography variant="h4">Ruse</Typography>
+                  {showRuse ? (
+                    <div onClick={toggleShowRuse}>
+                      <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                        {battlefield.ruse?.name}
+                      </Typography>
+                      <Typography
+                        variant="body"
+                        style={{ paddingLeft: "16px" }}
+                      >
+                        {battlefield.ruse?.description}
+                      </Typography>
+                    </div>
+                  ) : (
+                    <Button variant="contained" onClick={toggleShowRuse}>
+                      Show Ruse
+                    </Button>
+                  )}
+                </Grid>
+              </Grid>
             </Grid>
-            <Grid item>
-              <Typography variant="h4">Sudden Death</Typography>
-              {showSuddenDeath ? (
-                <div onClick={toggleShowSuddenDeath}>
+            <Grid item xs={6}>
+              <Grid container direction="column" spacing={4}>
+                <Grid item>
+                  <Typography variant="h4">Battlefield Terrain</Typography>
                   <Typography variant="h6" style={{ paddingLeft: "16px" }}>
-                    {battlefield.suddenDeath?.name}
+                    {battlefield.terrain}
                   </Typography>
-                  <Typography variant="body" style={{ paddingLeft: "16px" }}>
-                    {battlefield.suddenDeath?.description}
-                  </Typography>
-                </div>
-              ) : (
-                <Button variant="contained" onClick={toggleShowSuddenDeath}>
-                  Show Sudden Death
-                </Button>
-              )}
-            </Grid>
-            <Grid item>
-              <Typography variant="h4">Ruse</Typography>
-              {showRuse ? (
-                <div onClick={toggleShowRuse}>
+                </Grid>
+                <Grid item>
+                  <Typography variant="h4">Victor Rewards</Typography>
                   <Typography variant="h6" style={{ paddingLeft: "16px" }}>
-                    {battlefield.ruse?.name}
+                    Choose{" "}
+                    {winnerSelection === W_ONE_OF_ONE
+                      ? 1
+                      : winnerSelection === W_TWO_OF_THREE
+                      ? 2
+                      : 3}{" "}
+                    of these rewards:
                   </Typography>
-                  <Typography variant="body" style={{ paddingLeft: "16px" }}>
-                    {battlefield.ruse?.description}
+                  <ul style={{ paddingLeft: "32px" }}>
+                    {battlefield.winnerOptions.map((option) => (
+                      <li key={option}>
+                        <Typography variant="body">{option}</Typography>
+                      </li>
+                    ))}
+                  </ul>
+                </Grid>
+                <Grid item>
+                  <Typography variant="h4">Loser Rewards</Typography>
+                  <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                    Choose{" "}
+                    {loserSelection === L_ONE_OF_ONE
+                      ? 1
+                      : loserSelection === L_ONE_OF_THREE
+                      ? 1
+                      : 2}{" "}
+                    of these rewards:
                   </Typography>
-                </div>
-              ) : (
-                <Button variant="contained" onClick={toggleShowRuse}>
-                  Show Ruse
-                </Button>
-              )}
-            </Grid>
-            <Grid item>
-              <Typography variant="h4">Battlefield Terrain</Typography>
-              <Typography variant="h6" style={{ paddingLeft: "16px" }}>
-                {battlefield.terrain}
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="h4">Victor Rewards</Typography>
-              <Typography variant="h6" style={{ paddingLeft: "16px" }}>
-                Choose{" "}
-                {winnerSelection === W_ONE_OF_ONE
-                  ? 1
-                  : winnerSelection === W_TWO_OF_THREE
-                  ? 2
-                  : 3}{" "}
-                of these rewards:
-              </Typography>
-              <ul style={{ paddingLeft: "32px" }}>
-                {battlefield.winnerOptions.map((option) => (
-                  <li key={option}>
-                    <Typography variant="body">{option}</Typography>
-                  </li>
-                ))}
-              </ul>
-            </Grid>
-            <Grid item>
-              <Typography variant="h4">Loser Rewards</Typography>
-              <Typography variant="h6" style={{ paddingLeft: "16px" }}>
-                Choose{" "}
-                {loserSelection === L_ONE_OF_ONE
-                  ? 1
-                  : loserSelection === L_ONE_OF_THREE
-                  ? 1
-                  : 2}{" "}
-                of these rewards:
-              </Typography>
-              <ul style={{ paddingLeft: "32px" }}>
-                {battlefield.loserOptions.map((option) => (
-                  <li key={option}>
-                    <Typography variant="body">{option}</Typography>
-                  </li>
-                ))}
-              </ul>
+                  <ul style={{ paddingLeft: "32px" }}>
+                    {battlefield.loserOptions.map((option) => (
+                      <li key={option}>
+                        <Typography variant="body">{option}</Typography>
+                      </li>
+                    ))}
+                  </ul>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Card>
