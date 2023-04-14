@@ -13,15 +13,22 @@ import {
   Card,
   Button,
   Typography,
+  FormControlLabel,
+  FormLabel,
+  RadioGroup,
+  Radio,
 } from "@mui/material";
 import {
-  ETERNAL_WAR_MISSIONS,
   RUSES,
   PRIMARY_OBJECTIVES,
   SECONDARY_OBJECTIVES,
   SUDDEN_DEATH_CONDITIONS,
   TWISTS,
+  TERRAIN_TYPES,
+  WINNER_REWARDS,
+  LOSER_REWARDS,
 } from "./data/data";
+import { shuffleAndSelect, getRandomFromArray } from "./services/randomization";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -34,12 +41,13 @@ const MenuProps = {
   },
 };
 
-function getRandomFromArray(array) {
-  if (array === undefined || array === null || array.length < 1) {
-    return null;
-  }
-  return array[Math.floor(Math.random() * array.length)];
-}
+const W_ONE_OF_ONE = "w_one_of_one";
+const W_TWO_OF_THREE = "w_two_of_three";
+const W_THREE_OF_FIVE = "w_three_of_five";
+
+const L_ONE_OF_ONE = "l_one_of_one";
+const L_ONE_OF_THREE = "l_one_of_three";
+const L_TWO_OF_FIVE = "l_two_of_five";
 
 function App() {
   const [primaryObjectives, setPrimaryObjectives] =
@@ -64,6 +72,9 @@ function App() {
     suddenDeath: null,
     twist: [],
   });
+
+  const [winnerSelection, setWinnerSelection] = useState(W_ONE_OF_ONE);
+  const [loserSelection, setLoserSelection] = useState(L_ONE_OF_ONE);
 
   const handlePrimaryObjectiveChange = (event) => {
     const {
@@ -127,6 +138,13 @@ function App() {
     setShowSuddenDeath(!showSuddenDeath);
   };
 
+  const handleWinnerSelectionChange = (event) => {
+    setWinnerSelection(event.target.value);
+  };
+  const handleLoserSelectionChange = (event) => {
+    setLoserSelection(event.target.value);
+  };
+
   const generateBattlefield = () => {
     const ruse = getRandomFromArray(ruses);
     const suddenDeath = getRandomFromArray(suddenDeaths);
@@ -140,6 +158,24 @@ function App() {
 
     const primaryObjective = getRandomFromArray(primaryObjectives);
     const secondaryObjective = getRandomFromArray(secondaryObjectives);
+    const terrain = getRandomFromArray(TERRAIN_TYPES);
+
+    const winnerOptions = shuffleAndSelect(
+      WINNER_REWARDS,
+      winnerSelection === W_ONE_OF_ONE
+        ? 1
+        : winnerSelection === W_TWO_OF_THREE
+        ? 3
+        : 5
+    );
+    const loserOptions = shuffleAndSelect(
+      LOSER_REWARDS,
+      loserSelection === L_ONE_OF_ONE
+        ? 1
+        : loserSelection === L_ONE_OF_THREE
+        ? 3
+        : 5
+    );
 
     let battlefieldConditions = {
       ruse,
@@ -147,6 +183,9 @@ function App() {
       twist,
       primaryObjective,
       secondaryObjective,
+      terrain,
+      winnerOptions,
+      loserOptions,
     };
 
     console.log(battlefieldConditions);
@@ -340,8 +379,8 @@ function App() {
               </Grid>
             </Grid>
             <Grid item>
-              <Grid container direction="row">
-                <Grid item xs={2} style={{ paddingRight: "16px" }}>
+              <Grid container direction="row" alignItems="flex-end">
+                <Grid item xs={1} style={{ paddingRight: "16px" }}>
                   <TextField
                     id="twists-number"
                     label="Number of Twists"
@@ -358,6 +397,66 @@ function App() {
                         : null
                     }
                   />
+                </Grid>
+                <Grid item xs={3} style={{ paddingRight: "16px" }}>
+                  <FormControl>
+                    <FormLabel id="winner-rewards-group-label">
+                      Winner Rewards
+                    </FormLabel>
+                    <RadioGroup
+                      row
+                      aria-labelledby="winner-rewards-group-label"
+                      name="winner-rewards-group"
+                      value={winnerSelection}
+                      onChange={handleWinnerSelectionChange}
+                    >
+                      <FormControlLabel
+                        value={W_ONE_OF_ONE}
+                        control={<Radio />}
+                        label="One of One"
+                      />
+                      <FormControlLabel
+                        value={W_TWO_OF_THREE}
+                        control={<Radio />}
+                        label="Two of Three"
+                      />
+                      <FormControlLabel
+                        value={W_THREE_OF_FIVE}
+                        control={<Radio />}
+                        label="Three of Five"
+                      />
+                    </RadioGroup>
+                  </FormControl>
+                </Grid>
+                <Grid item xs={3} style={{ paddingRight: "16px" }}>
+                  <FormControl>
+                    <FormLabel id="loser-rewards-group-label">
+                      Loser Rewards
+                    </FormLabel>
+                    <RadioGroup
+                      row
+                      aria-labelledby="loser-rewards-group-label"
+                      name="loser-rewards-group"
+                      value={loserSelection}
+                      onChange={handleLoserSelectionChange}
+                    >
+                      <FormControlLabel
+                        value={L_ONE_OF_ONE}
+                        control={<Radio />}
+                        label="One of One"
+                      />
+                      <FormControlLabel
+                        value={L_ONE_OF_THREE}
+                        control={<Radio />}
+                        label="One of Three"
+                      />
+                      <FormControlLabel
+                        value={L_TWO_OF_FIVE}
+                        control={<Radio />}
+                        label="Two of Five"
+                      />
+                    </RadioGroup>
+                  </FormControl>
                 </Grid>
                 <Grid item xs={1} style={{ height: "inherit" }}>
                   <Grid
@@ -458,6 +557,50 @@ function App() {
                   Show Ruse
                 </Button>
               )}
+            </Grid>
+            <Grid item>
+              <Typography variant="h4">Battlefield Terrain</Typography>
+              <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                {battlefield.terrain}
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Typography variant="h4">Victor Rewards</Typography>
+              <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                Choose{" "}
+                {winnerSelection === W_ONE_OF_ONE
+                  ? 1
+                  : winnerSelection === W_TWO_OF_THREE
+                  ? 2
+                  : 3}{" "}
+                of these rewards:
+              </Typography>
+              <ul style={{ paddingLeft: "32px" }}>
+                {battlefield.winnerOptions.map((option) => (
+                  <li key={option}>
+                    <Typography variant="body">{option}</Typography>
+                  </li>
+                ))}
+              </ul>
+            </Grid>
+            <Grid item>
+              <Typography variant="h4">Loser Rewards</Typography>
+              <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                Choose{" "}
+                {loserSelection === L_ONE_OF_ONE
+                  ? 1
+                  : loserSelection === L_ONE_OF_THREE
+                  ? 1
+                  : 2}{" "}
+                of these rewards:
+              </Typography>
+              <ul style={{ paddingLeft: "32px" }}>
+                {battlefield.loserOptions.map((option) => (
+                  <li key={option}>
+                    <Typography variant="body">{option}</Typography>
+                  </li>
+                ))}
+              </ul>
             </Grid>
           </Grid>
         </Card>

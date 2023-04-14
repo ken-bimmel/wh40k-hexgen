@@ -304,6 +304,7 @@ const ETERNAL_WAR_MISSIONS = [
     map: PathwayToGlory,
   },
 ];
+
 const PRIMARY_OBJECTIVES = [
   {
     id: "1",
@@ -734,6 +735,58 @@ const RUSES = [
   },
 ];
 
+const TERRAIN_TYPES = [
+  "Imperial City",
+  "Ruined Imperial City",
+  "Woodlands",
+  "Mountains",
+  "Plains",
+  "Swamp",
+  "Tundra",
+  "Ork Encampment",
+  "Space Hulk",
+  "Tomb World",
+  "Craftworld",
+  "Manufactorum",
+  "Chaos Gate",
+  "Desert",
+  "Wasteland",
+  "Ocean Platform",
+  "Underhive",
+  "Imperial Fortifications",
+];
+
+const WINNER_REWARDS = [
+  "200pts of HQ Units",
+  "200pts of Troop Units",
+  "200pts of Elite Units",
+  "200pts of Fast Attack Units",
+  "200pts of Heavy Support Units",
+  "200pts of Flyer Units",
+  "200pts of Dedicated Transport Units",
+  "200pts of Wargear",
+  "200pts of Unit Upgrades",
+  "200pts of Unrestricted Use",
+  "Warlord Trait",
+  "Relic Item",
+  "Faction Stratagem",
+];
+
+const LOSER_REWARDS = [
+  "175pts of HQ Units",
+  "175pts of Troop Units",
+  "175pts of Elite Units",
+  "175pts of Fast Attack Units",
+  "175pts of Heavy Support Units",
+  "175pts of Flyer Units",
+  "175pts of Dedicated Transport Units",
+  "175pts of Wargear",
+  "175pts of Unit Upgrades",
+  "180pts of Fortifications",
+  "Ruse Access",
+  "Faction Stratagem",
+];
+
 export {
   ETERNAL_WAR_MISSIONS,
   PRIMARY_OBJECTIVES,
@@ -741,4 +794,7 @@ export {
   TWISTS,
   SUDDEN_DEATH_CONDITIONS,
   RUSES,
+  TERRAIN_TYPES,
+  WINNER_REWARDS,
+  LOSER_REWARDS,
 };
