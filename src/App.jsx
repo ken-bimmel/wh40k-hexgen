@@ -15,8 +15,9 @@ import {
   Typography,
 } from "@mui/material";
 import {
-  PRIMARY_OBJECTIVES,
+  ETERNAL_WAR_MISSIONS,
   RUSES,
+  PRIMARY_OBJECTIVES,
   SECONDARY_OBJECTIVES,
   SUDDEN_DEATH_CONDITIONS,
   TWISTS,
@@ -41,23 +42,19 @@ function getRandomFromArray(array) {
 }
 
 function App() {
-  const [primaryObjectives, setPrimaryObjectives] = useState(
-    PRIMARY_OBJECTIVES.map((obj) => obj.name)
-  );
-  const [secondaryObjectives, setSecondaryObjectives] = useState(
-    SECONDARY_OBJECTIVES.map((obj) => obj.name)
-  );
+  const [primaryObjectives, setPrimaryObjectives] =
+    useState(PRIMARY_OBJECTIVES);
+  const [secondaryObjectives, setSecondaryObjectives] =
+    useState(SECONDARY_OBJECTIVES);
 
-  const [twists, setTwists] = useState(TWISTS.map((obj) => obj.name));
+  const [twists, setTwists] = useState(TWISTS);
   const [numberOfTwists, setNumberOfTwists] = useState(1);
   const [showTwist, setShowTwist] = useState(false);
 
-  const [ruses, setRuses] = useState(RUSES.map((obj) => obj.name));
+  const [ruses, setRuses] = useState(RUSES);
   const [showRuse, setShowRuse] = useState(false);
 
-  const [suddenDeaths, setSuddenDeaths] = useState(
-    SUDDEN_DEATH_CONDITIONS.map((obj) => obj.name)
-  );
+  const [suddenDeaths, setSuddenDeaths] = useState(SUDDEN_DEATH_CONDITIONS);
   const [showSuddenDeath, setShowSuddenDeath] = useState(false);
 
   const [battlefield, setBattlefield] = useState({
@@ -131,8 +128,6 @@ function App() {
   };
 
   const generateBattlefield = () => {
-    const primaryObjective = getRandomFromArray(primaryObjectives);
-    const secondaryObjective = getRandomFromArray(secondaryObjectives);
     const ruse = getRandomFromArray(ruses);
     const suddenDeath = getRandomFromArray(suddenDeaths);
     const twist = [];
@@ -142,12 +137,16 @@ function App() {
         twist.push(getRandomFromArray(twists));
       }
     }
-    const battlefieldConditions = {
-      primaryObjective,
-      secondaryObjective,
+
+    const primaryObjective = getRandomFromArray(primaryObjectives);
+    const secondaryObjective = getRandomFromArray(secondaryObjectives);
+
+    let battlefieldConditions = {
       ruse,
       suddenDeath,
       twist,
+      primaryObjective,
+      secondaryObjective,
     };
 
     console.log(battlefieldConditions);
@@ -181,15 +180,15 @@ function App() {
                           label="Primary Objectives to Include"
                         />
                       }
-                      renderValue={(selected) => selected.join(", ")}
+                      renderValue={(selected) =>
+                        selected.map((e) => e.name).join(", ")
+                      }
                       MenuProps={MenuProps}
                     >
                       {PRIMARY_OBJECTIVES.map((objective) => (
-                        <MenuItem key={objective.name} value={objective.name}>
+                        <MenuItem key={objective.name} value={objective}>
                           <Checkbox
-                            checked={
-                              primaryObjectives.indexOf(objective.name) > -1
-                            }
+                            checked={primaryObjectives.indexOf(objective) > -1}
                           />
                           <ListItemText
                             primary={objective.name}
@@ -217,14 +216,16 @@ function App() {
                           label="Secondary Objectives to Include"
                         />
                       }
-                      renderValue={(selected) => selected.join(", ")}
+                      renderValue={(selected) =>
+                        selected.map((e) => e.name).join(", ")
+                      }
                       MenuProps={MenuProps}
                     >
                       {SECONDARY_OBJECTIVES.map((objective) => (
-                        <MenuItem key={objective.name} value={objective.name}>
+                        <MenuItem key={objective.name} value={objective}>
                           <Checkbox
                             checked={
-                              secondaryObjectives.indexOf(objective.name) > -1
+                              secondaryObjectives.indexOf(objective) > -1
                             }
                           />
                           <ListItemText
@@ -251,17 +252,17 @@ function App() {
                           label="Twists to Include"
                         />
                       }
-                      renderValue={(selected) => selected.join(", ")}
+                      renderValue={(selected) =>
+                        selected.map((e) => e.name).join(", ")
+                      }
                       MenuProps={MenuProps}
                     >
-                      {TWISTS.map((objective) => (
-                        <MenuItem key={objective.name} value={objective.name}>
-                          <Checkbox
-                            checked={twists.indexOf(objective.name) > -1}
-                          />
+                      {TWISTS.map((twist) => (
+                        <MenuItem key={twist.name} value={twist}>
+                          <Checkbox checked={twists.indexOf(twist) > -1} />
                           <ListItemText
-                            primary={objective.name}
-                            secondary={objective.category}
+                            primary={twist.name}
+                            secondary={twist.category}
                           />
                         </MenuItem>
                       ))}
@@ -283,17 +284,17 @@ function App() {
                           label="Ruses Objectives to Include"
                         />
                       }
-                      renderValue={(selected) => selected.join(", ")}
+                      renderValue={(selected) =>
+                        selected.map((e) => e.name).join(", ")
+                      }
                       MenuProps={MenuProps}
                     >
-                      {RUSES.map((objective) => (
-                        <MenuItem key={objective.name} value={objective.name}>
-                          <Checkbox
-                            checked={ruses.indexOf(objective.name) > -1}
-                          />
+                      {RUSES.map((ruse) => (
+                        <MenuItem key={ruse.name} value={ruse}>
+                          <Checkbox checked={ruses.indexOf(ruse) > -1} />
                           <ListItemText
-                            primary={objective.name}
-                            secondary={objective.category}
+                            primary={ruse.name}
+                            secondary={ruse.category}
                           />
                         </MenuItem>
                       ))}
@@ -317,17 +318,19 @@ function App() {
                           label="Sudden Death Conditions to Include"
                         />
                       }
-                      renderValue={(selected) => selected.join(", ")}
+                      renderValue={(selected) =>
+                        selected.map((e) => e.name).join(", ")
+                      }
                       MenuProps={MenuProps}
                     >
-                      {SUDDEN_DEATH_CONDITIONS.map((objective) => (
-                        <MenuItem key={objective.name} value={objective.name}>
+                      {SUDDEN_DEATH_CONDITIONS.map((condition) => (
+                        <MenuItem key={condition.name} value={condition}>
                           <Checkbox
-                            checked={suddenDeaths.indexOf(objective.name) > -1}
+                            checked={suddenDeaths.indexOf(condition) > -1}
                           />
                           <ListItemText
-                            primary={objective.name}
-                            secondary={objective.category}
+                            primary={condition.name}
+                            secondary={condition.category}
                           />
                         </MenuItem>
                       ))}
@@ -338,7 +341,7 @@ function App() {
             </Grid>
             <Grid item>
               <Grid container direction="row">
-                <Grid item xs={2}>
+                <Grid item xs={2} style={{ paddingRight: "16px" }}>
                   <TextField
                     id="twists-number"
                     label="Number of Twists"
@@ -377,71 +380,84 @@ function App() {
       </Grid>
       <Grid item style={{ maxWidth: "100%" }}>
         <Card style={{ margin: "16px", padding: "16px" }}>
-          <Grid container direction="row" spacing={4}>
+          <Grid container direction="column" spacing={4}>
             <Grid item>
-              <Typography variant="h6">Primary Objective</Typography>
-              <Typography variant="subtitle1" style={{ paddingLeft: "16px" }}>
-                {battlefield.primaryObjective}
+              <Typography variant="h4">Primary Objective</Typography>
+              <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                {battlefield.primaryObjective?.name}
+              </Typography>
+              <Typography variant="body" style={{ paddingLeft: "16px" }}>
+                {battlefield.primaryObjective?.description}
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="h6">Secondary Objective</Typography>
-              <Typography variant="subtitle1" style={{ paddingLeft: "16px" }}>
-                {battlefield.secondaryObjective}
+              <Typography variant="h4">Secondary Objective</Typography>
+              <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                {battlefield.secondaryObjective?.name}
+              </Typography>
+              <Typography variant="body" style={{ paddingLeft: "16px" }}>
+                {battlefield.secondaryObjective?.description}
               </Typography>
             </Grid>
             <Grid item>
-              <Typography variant="h6">
+              <Typography variant="h4">
                 Twist{battlefield.twist.length > 1 ? "s" : null}
               </Typography>
-              <Typography
-                variant="subtitle1"
-                style={showTwist ? { paddingLeft: "16px" } : null}
-              >
-                {showTwist ? (
-                  <span onClick={toggleShowTwist}>
-                    {battlefield.twist.map((e, index) =>
-                      index < battlefield.twist.length - 1 ? `${e}, ` : e
-                    )}
-                  </span>
-                ) : (
-                  <Button variant="contained" onClick={toggleShowTwist}>
-                    Show Twist{battlefield.twist.length > 1 ? "s" : null}
-                  </Button>
-                )}
-              </Typography>
+              {showTwist ? (
+                <div onClick={toggleShowTwist}>
+                  {battlefield.twist.map((twist) => (
+                    <>
+                      <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                        {twist.name}
+                      </Typography>
+                      <Typography
+                        variant="body"
+                        style={{ paddingLeft: "16px" }}
+                      >
+                        {twist.description}
+                      </Typography>
+                    </>
+                  ))}
+                </div>
+              ) : (
+                <Button variant="contained" onClick={toggleShowTwist}>
+                  Show Twist{battlefield.twist.length > 1 ? "s" : null}
+                </Button>
+              )}
             </Grid>
             <Grid item>
-              <Typography variant="h6">Sudden Death</Typography>
-              <Typography
-                variant="subtitle1"
-                style={showSuddenDeath ? { paddingLeft: "16px" } : null}
-              >
-                {showSuddenDeath ? (
-                  <span onClick={toggleShowSuddenDeath}>
-                    {battlefield.suddenDeath}
-                  </span>
-                ) : (
-                  <Button variant="contained" onClick={toggleShowSuddenDeath}>
-                    Show Sudden Death
-                  </Button>
-                )}
-              </Typography>
+              <Typography variant="h4">Sudden Death</Typography>
+              {showSuddenDeath ? (
+                <div onClick={toggleShowSuddenDeath}>
+                  <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                    {battlefield.suddenDeath?.name}
+                  </Typography>
+                  <Typography variant="body" style={{ paddingLeft: "16px" }}>
+                    {battlefield.suddenDeath?.description}
+                  </Typography>
+                </div>
+              ) : (
+                <Button variant="contained" onClick={toggleShowSuddenDeath}>
+                  Show Sudden Death
+                </Button>
+              )}
             </Grid>
             <Grid item>
-              <Typography variant="h6">Ruse</Typography>
-              <Typography
-                variant="subtitle1"
-                style={showRuse ? { paddingLeft: "16px" } : null}
-              >
-                {showRuse ? (
-                  <span onClick={toggleShowRuse}>{battlefield.ruse}</span>
-                ) : (
-                  <Button variant="contained" onClick={toggleShowRuse}>
-                    Show Ruse
-                  </Button>
-                )}
-              </Typography>
+              <Typography variant="h4">Ruse</Typography>
+              {showRuse ? (
+                <div onClick={toggleShowRuse}>
+                  <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                    {battlefield.ruse?.name}
+                  </Typography>
+                  <Typography variant="body" style={{ paddingLeft: "16px" }}>
+                    {battlefield.ruse?.description}
+                  </Typography>
+                </div>
+              ) : (
+                <Button variant="contained" onClick={toggleShowRuse}>
+                  Show Ruse
+                </Button>
+              )}
             </Grid>
           </Grid>
         </Card>
