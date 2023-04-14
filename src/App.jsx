@@ -27,6 +27,7 @@ import {
   TERRAIN_TYPES,
   WINNER_REWARDS,
   LOSER_REWARDS,
+  MAPS,
 } from "./data/data";
 import { shuffleAndSelect, getRandomFromArray } from "./services/randomization";
 
@@ -74,10 +75,13 @@ function App() {
     terrain: null,
     winnerOptions: [],
     loserOptions: [],
+    map: null,
   });
 
   const [winnerSelection, setWinnerSelection] = useState(W_ONE_OF_ONE);
   const [loserSelection, setLoserSelection] = useState(L_ONE_OF_ONE);
+
+  const [showMap, setShowMap] = useState(false);
 
   const handlePrimaryObjectiveChange = (event) => {
     const {
@@ -148,6 +152,10 @@ function App() {
     setLoserSelection(event.target.value);
   };
 
+  const toggleShowMap = () => {
+    setShowMap(!showMap);
+  };
+
   const generateBattlefield = () => {
     const ruse = getRandomFromArray(ruses);
     const suddenDeath = getRandomFromArray(suddenDeaths);
@@ -162,6 +170,7 @@ function App() {
     const primaryObjective = getRandomFromArray(primaryObjectives);
     const secondaryObjective = getRandomFromArray(secondaryObjectives);
     const terrain = getRandomFromArray(TERRAIN_TYPES);
+    const map = getRandomFromArray(MAPS);
 
     const winnerOptions = shuffleAndSelect(
       WINNER_REWARDS,
@@ -189,6 +198,7 @@ function App() {
       terrain,
       winnerOptions,
       loserOptions,
+      map,
     };
 
     console.log(battlefieldConditions);
@@ -196,6 +206,7 @@ function App() {
     setShowRuse(false);
     setShowTwist(false);
     setShowSuddenDeath(false);
+    setShowMap(false);
   };
 
   return (
@@ -619,6 +630,16 @@ function App() {
                       </li>
                     ))}
                   </ul>
+                </Grid>
+                <Grid item>
+                  <Typography variant="h4">Deployment Map</Typography>
+                  {showMap ? (
+                    <img src={battlefield.map?.image} onClick={toggleShowMap} />
+                  ) : (
+                    <Button variant="contained" onClick={toggleShowMap}>
+                      Show Map
+                    </Button>
+                  )}
                 </Grid>
               </Grid>
             </Grid>

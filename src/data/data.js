@@ -17,6 +17,18 @@ import {
   ShiftingFront,
   TheFourPillars,
   VitalIntelligence,
+  OpenWar1,
+  OpenWar2,
+  OpenWar3,
+  OpenWar4,
+  OpenWar5,
+  OpenWar6,
+  OpenWar7,
+  OpenWar8,
+  OpenWar9,
+  OpenWar10,
+  OpenWar11,
+  OpenWar12,
 } from "../maps";
 
 const ETERNAL_WAR_MISSIONS = [
@@ -735,6 +747,21 @@ const RUSES = [
   },
 ];
 
+const MAPS = [
+  { name: "OpenWar1", image: OpenWar1 },
+  { name: "OpenWar2", image: OpenWar2 },
+  { name: "OpenWar3", image: OpenWar3 },
+  { name: "OpenWar4", image: OpenWar4 },
+  { name: "OpenWar5", image: OpenWar5 },
+  { name: "OpenWar6", image: OpenWar6 },
+  { name: "OpenWar7", image: OpenWar7 },
+  { name: "OpenWar8", image: OpenWar8 },
+  { name: "OpenWar9", image: OpenWar9 },
+  { name: "OpenWar10", image: OpenWar10 },
+  { name: "OpenWar11", image: OpenWar11 },
+  { name: "OpenWar12", image: OpenWar12 },
+];
+
 const TERRAIN_TYPES = [
   "Imperial City",
   "Ruined Imperial City",
@@ -797,4 +824,5 @@ export {
   TERRAIN_TYPES,
   WINNER_REWARDS,
   LOSER_REWARDS,
+  MAPS,
 };
