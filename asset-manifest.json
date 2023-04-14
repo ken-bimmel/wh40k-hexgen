@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/wh40k-hexgen/static/css/main.073c9b0a.css",
-    "main.js": "/wh40k-hexgen/static/js/main.9722d796.js",
+    "main.js": "/wh40k-hexgen/static/js/main.4441759e.js",
     "static/media/Crossfire2.webp": "/wh40k-hexgen/static/media/Crossfire2.be8aab5d5e6a2ffceaab.webp",
     "static/media/VitalIntelligence.webp": "/wh40k-hexgen/static/media/VitalIntelligence.1fd18baa0847dbcbfa3f.webp",
     "static/media/Encircle.webp": "/wh40k-hexgen/static/media/Encircle.ddd32058e857525269eb.webp",
@@ -12,20 +12,32 @@
     "static/media/TheFourPillars.webp": "/wh40k-hexgen/static/media/TheFourPillars.efdff1268b2187534437.webp",
     "static/media/Outriders.webp": "/wh40k-hexgen/static/media/Outriders.be02d8d8824ac38d221f.webp",
     "static/media/FrontLineWarfare.webp": "/wh40k-hexgen/static/media/FrontLineWarfare.b9d437e2fb1ce56c4a36.webp",
+    "static/media/OpenWar6.png": "/wh40k-hexgen/static/media/OpenWar6.a9003df6e640d78e2f5a.png",
+    "static/media/OpenWar11.webp": "/wh40k-hexgen/static/media/OpenWar11.adbf8be75eb8fe25c075.webp",
+    "static/media/OpenWar9.png": "/wh40k-hexgen/static/media/OpenWar9.dd8114f3be0bfa6519dd.png",
     "static/media/ScorchedEarth.webp": "/wh40k-hexgen/static/media/ScorchedEarth.58dbf8b78d9c0b60af1a.webp",
     "static/media/ForwardPush.webp": "/wh40k-hexgen/static/media/ForwardPush.0d54616f084cf10d15a3.webp",
+    "static/media/OpenWar4.webp": "/wh40k-hexgen/static/media/OpenWar4.91d74b4673a206f55742.webp",
     "static/media/IncisiveAttack.webp": "/wh40k-hexgen/static/media/IncisiveAttack.146c148c2e55d075bf78.webp",
     "static/media/PathwayToGlory.webp": "/wh40k-hexgen/static/media/PathwayToGlory.7d9682e883fdf0175e53.webp",
     "static/media/DivideAndConquer.webp": "/wh40k-hexgen/static/media/DivideAndConquer.ddc6ef1fe5a8f9f22a33.webp",
+    "static/media/OpenWar7.webp": "/wh40k-hexgen/static/media/OpenWar7.5d30c79c42caf34fc99f.webp",
     "static/media/NoMansLand.webp": "/wh40k-hexgen/static/media/NoMansLand.e1c66714fc8cdc6fe769.webp",
+    "static/media/OpenWar8.webp": "/wh40k-hexgen/static/media/OpenWar8.fa4bfbf8e7615cc5b3a8.webp",
+    "static/media/OpenWar3.webp": "/wh40k-hexgen/static/media/OpenWar3.c5d2ba9019728af06a81.webp",
     "static/media/CentreGround.webp": "/wh40k-hexgen/static/media/CentreGround.87cb6e52415da22cd35b.webp",
+    "static/media/OpenWar5.png": "/wh40k-hexgen/static/media/OpenWar5.037ce844aab33ffe1b1e.png",
     "static/media/RetrievalMission.webp": "/wh40k-hexgen/static/media/RetrievalMission.ccd04169dedf92c86141.webp",
+    "static/media/OpenWar2.png": "/wh40k-hexgen/static/media/OpenWar2.bb12716301e2ab96b500.png",
+    "static/media/OpenWar1.webp": "/wh40k-hexgen/static/media/OpenWar1.bb37be7823ec29661ece.webp",
+    "static/media/OpenWar10.webp": "/wh40k-hexgen/static/media/OpenWar10.cce703bc609bc2d70a9b.webp",
+    "static/media/OpenWar12.png": "/wh40k-hexgen/static/media/OpenWar12.ba37aa684f47b8560ad9.png",
     "index.html": "/wh40k-hexgen/index.html",
     "main.073c9b0a.css.map": "/wh40k-hexgen/static/css/main.073c9b0a.css.map",
-    "main.9722d796.js.map": "/wh40k-hexgen/static/js/main.9722d796.js.map"
+    "main.4441759e.js.map": "/wh40k-hexgen/static/js/main.4441759e.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.9722d796.js"
+    "static/js/main.4441759e.js"
   ]
 }
