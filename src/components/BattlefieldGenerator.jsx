@@ -43,9 +43,6 @@ function getRoundConfig(roundNumber) {
 }
 
 function BattlefieldGenerator() {
-  const [roundNumber, setRoundNumber] = useState(1);
-  const [showTwist, setShowTwist] = useState(false);
-
   const [battlefield, setBattlefield] = useState({
     primaryObjective: null,
     secondaryObjective: null,
@@ -56,7 +53,10 @@ function BattlefieldGenerator() {
     pointTotal: null,
   });
 
+  const [roundNumber, setRoundNumber] = useState(1);
+  const [showTwist, setShowTwist] = useState(false);
   const [showMap, setShowMap] = useState(false);
+  const [showBattlefield, setShowBattlefield] = useState(false);
 
   const handleRoundNumberChange = (event) => {
     setRoundNumber(event.target.value);
@@ -70,6 +70,7 @@ function BattlefieldGenerator() {
   };
 
   const generateBattlefield = () => {
+    setShowBattlefield(true);
     const roundConfig = getRoundConfig(roundNumber);
 
     const twists = [];
@@ -104,10 +105,9 @@ function BattlefieldGenerator() {
       <Grid item style={{ maxWidth: "100%" }}>
         <Card style={{ margin: "16px", padding: "16px" }}>
           <Grid container direction="column" spacing={4}>
-            <Grid item></Grid>
             <Grid item>
               <Grid container direction="row" alignItems="flex-end">
-                <Grid item xs={1} style={{ paddingRight: "16px" }}>
+                <Grid item style={{ paddingRight: "16px" }}>
                   <TextField
                     id="round-number"
                     label="Round Number"
@@ -125,11 +125,11 @@ function BattlefieldGenerator() {
                     }
                   />
                 </Grid>
-                <Grid item xs={1} style={{ height: "inherit" }}>
+                <Grid item style={{ height: "100%" }}>
                   <Grid
                     container
                     direction="column"
-                    justifyContent="flex-end"
+                    justifyContent="center"
                     style={{ height: "100%" }}
                   >
                     <Grid item>
@@ -144,89 +144,94 @@ function BattlefieldGenerator() {
           </Grid>
         </Card>
       </Grid>
-      <Grid item style={{ maxWidth: "100%" }}>
-        <Card style={{ margin: "16px", padding: "16px" }}>
-          <Grid container direction="row" justifyContent="space-around">
-            <Grid item xs={6}>
-              <Grid container direction="column" spacing={4}>
-                <Grid item>
-                  <Typography variant="h4">Primary Objective</Typography>
-                  <Typography variant="h6" style={{ paddingLeft: "16px" }}>
-                    {battlefield.primaryObjective?.name}
-                  </Typography>
-                  <Typography variant="body" style={{ paddingLeft: "16px" }}>
-                    {battlefield.primaryObjective?.description}
-                  </Typography>
+      {showBattlefield ? (
+        <Grid item style={{ maxWidth: "100%" }}>
+          <Card style={{ margin: "16px", padding: "16px" }}>
+            <Grid container direction="row" justifyContent="space-around">
+              <Grid item xs={6}>
+                <Grid container direction="column" spacing={4}>
+                  <Grid item>
+                    <Typography variant="h4">Primary Objective</Typography>
+                    <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                      {battlefield.primaryObjective?.name}
+                    </Typography>
+                    <Typography variant="body" style={{ paddingLeft: "16px" }}>
+                      {battlefield.primaryObjective?.description}
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="h4">Secondary Objective</Typography>
+                    <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                      {battlefield.secondaryObjective?.name}
+                    </Typography>
+                    <Typography variant="body" style={{ paddingLeft: "16px" }}>
+                      {battlefield.secondaryObjective?.description}
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="h4">
+                      Twist{battlefield.twists.length > 1 ? "s" : null}
+                    </Typography>
+                    {showTwist ? (
+                      <div onClick={toggleShowTwist}>
+                        {battlefield.twists.map((twist) => (
+                          <>
+                            <Typography
+                              variant="h6"
+                              style={{ paddingLeft: "16px" }}
+                            >
+                              {twist.name}
+                            </Typography>
+                            <Typography
+                              variant="body"
+                              style={{ paddingLeft: "16px" }}
+                            >
+                              {twist.description}
+                            </Typography>
+                          </>
+                        ))}
+                      </div>
+                    ) : (
+                      <Button variant="contained" onClick={toggleShowTwist}>
+                        Show Twist{battlefield.twists.length > 1 ? "s" : null}
+                      </Button>
+                    )}
+                  </Grid>
                 </Grid>
-                <Grid item>
-                  <Typography variant="h4">Secondary Objective</Typography>
-                  <Typography variant="h6" style={{ paddingLeft: "16px" }}>
-                    {battlefield.secondaryObjective?.name}
-                  </Typography>
-                  <Typography variant="body" style={{ paddingLeft: "16px" }}>
-                    {battlefield.secondaryObjective?.description}
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography variant="h4">
-                    Twist{battlefield.twists.length > 1 ? "s" : null}
-                  </Typography>
-                  {showTwist ? (
-                    <div onClick={toggleShowTwist}>
-                      {battlefield.twists.map((twist) => (
-                        <>
-                          <Typography
-                            variant="h6"
-                            style={{ paddingLeft: "16px" }}
-                          >
-                            {twist.name}
-                          </Typography>
-                          <Typography
-                            variant="body"
-                            style={{ paddingLeft: "16px" }}
-                          >
-                            {twist.description}
-                          </Typography>
-                        </>
-                      ))}
-                    </div>
-                  ) : (
-                    <Button variant="contained" onClick={toggleShowTwist}>
-                      Show Twist{battlefield.twists.length > 1 ? "s" : null}
-                    </Button>
-                  )}
+              </Grid>
+              <Grid item xs={6}>
+                <Grid container direction="column" spacing={4}>
+                  <Grid item>
+                    <Typography variant="h4">Reward Unit Type</Typography>
+                    <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                      {battlefield.rewardUnitType}
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="h4">Battlefield Terrain</Typography>
+                    <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                      {battlefield.terrain}
+                    </Typography>
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="h4">Deployment Map</Typography>
+                    {showMap ? (
+                      <img
+                        src={battlefield.map?.image}
+                        onClick={toggleShowMap}
+                      />
+                    ) : (
+                      <Button variant="contained" onClick={toggleShowMap}>
+                        Show Map
+                      </Button>
+                    )}
+                  </Grid>
                 </Grid>
               </Grid>
             </Grid>
-            <Grid item xs={6}>
-              <Grid container direction="column" spacing={4}>
-                <Grid item>
-                  <Typography variant="h4">Reward Unit Type</Typography>
-                  <Typography variant="h6" style={{ paddingLeft: "16px" }}>
-                    {battlefield.rewardUnitType}
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography variant="h4">Battlefield Terrain</Typography>
-                  <Typography variant="h6" style={{ paddingLeft: "16px" }}>
-                    {battlefield.terrain}
-                  </Typography>
-                </Grid>
-                <Grid item>
-                  <Typography variant="h4">Deployment Map</Typography>
-                  {showMap ? (
-                    <img src={battlefield.map?.image} onClick={toggleShowMap} />
-                  ) : (
-                    <Button variant="contained" onClick={toggleShowMap}>
-                      Show Map
-                    </Button>
-                  )}
-                </Grid>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Card>
-      </Grid>
+          </Card>
+        </Grid>
+      ) : null}
     </Grid>
   );
 }
