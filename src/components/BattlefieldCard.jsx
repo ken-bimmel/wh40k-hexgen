@@ -20,7 +20,7 @@ function BattlefieldCard({ battlefield }) {
 
   return (
     <Card style={{ margin: "16px", padding: "16px" }}>
-      <Grid container direction="row" justifyContent="space-around">
+      <Grid container direction="row" justifyContent="space-around" spacing={4}>
         <Grid item xs={6}>
           <Grid container direction="column" spacing={4}>
             <Grid item>
@@ -41,6 +41,10 @@ function BattlefieldCard({ battlefield }) {
                 {battlefield.secondaryObjective?.description}
               </Typography>
             </Grid>
+          </Grid>
+        </Grid>
+        <Grid item xs={6}>
+          <Grid container direction="column" spacing={4}>
             <Grid item>
               <Typography variant="h4">
                 Twist{battlefield.twists.length > 1 ? "s" : null}
@@ -67,31 +71,27 @@ function BattlefieldCard({ battlefield }) {
                 </Button>
               )}
             </Grid>
-          </Grid>
-        </Grid>
-        <Grid item xs={6}>
-          <Grid container direction="column" spacing={4}>
             <Grid item>
-              <Typography variant="h4">Reward Unit Type</Typography>
-              <Typography variant="h6" style={{ paddingLeft: "16px" }}>
-                {battlefield.rewardUnitType}
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="h4">Battlefield Terrain</Typography>
-              <Typography variant="h6" style={{ paddingLeft: "16px" }}>
-                {battlefield.terrain}
-              </Typography>
-            </Grid>
-            <Grid item>
-              <Typography variant="h4">Deployment Map</Typography>
-              {showMap ? (
-                <img src={battlefield.map?.image} onClick={toggleShowMap} />
-              ) : (
-                <Button variant="contained" onClick={toggleShowMap}>
-                  Show Map
-                </Button>
-              )}
+              <Grid container direction="row" spacing={4}>
+                <Grid item>
+                  <Typography variant="h4">Reward Unit Type</Typography>
+                  <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                    {battlefield.rewardUnitType}
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography variant="h4">Battle Points</Typography>
+                  <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                    {battlefield.pointTotal}
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography variant="h4">Battlefield Terrain</Typography>
+                  <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                    {battlefield.terrain}
+                  </Typography>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Grid>
