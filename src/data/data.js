@@ -814,6 +814,48 @@ const LOSER_REWARDS = [
   "Faction Stratagem",
 ];
 
+const UNIT_TYPES = [
+  "HQ",
+  "Troop",
+  "Elite",
+  "Fast Attack",
+  "Heavy Support",
+  "Flyer",
+];
+
+const ROUND_CONFIGS = [
+  {
+    roundMin: 1,
+    roundMax: 1,
+    pointTotal: 250,
+    numberOfTwists: 1,
+  },
+  {
+    roundMin: 2,
+    roundMax: 4,
+    pointTotal: 400,
+    numberOfTwists: 1,
+  },
+  {
+    roundMin: 5,
+    roundMax: 9,
+    pointTotal: 600,
+    numberOfTwists: 1,
+  },
+  {
+    roundMin: 10,
+    roundMax: 14,
+    pointTotal: 950,
+    numberOfTwists: 2,
+  },
+  {
+    roundMin: 15,
+    roundMax: 9999,
+    pointTotal: 1200,
+    numberOfTwists: 2,
+  },
+];
+
 export {
   ETERNAL_WAR_MISSIONS,
   PRIMARY_OBJECTIVES,
@@ -825,4 +867,6 @@ export {
   WINNER_REWARDS,
   LOSER_REWARDS,
   MAPS,
+  UNIT_TYPES,
+  ROUND_CONFIGS,
 };
