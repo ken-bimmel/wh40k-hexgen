@@ -20,6 +20,7 @@ function BattlefieldCard({ battlefield }) {
 
   return (
     <Card style={{ margin: "16px", padding: "16px" }}>
+      <Typography variant="h2">{battlefield.battleName}</Typography>
       <Grid container direction="row" justifyContent="space-around" spacing={4}>
         <Grid item xs={6}>
           <Grid container direction="column" spacing={4}>

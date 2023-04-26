@@ -30,6 +30,7 @@ function BattlefieldGenerator() {
 
   const generateRound = () => {
     setShowBattlefield(true);
+    setBattlefields([]);
 
     const roundConfig = getRoundConfig(roundNumber);
 
@@ -80,10 +81,7 @@ function BattlefieldGenerator() {
         <Grid item style={{ maxWidth: "100%" }}>
           {battlefields.map((battlefield) => {
             return (
-              <BattlefieldCard
-                battlefield={battlefield}
-                key={battlefield.primaryObjective.name}
-              />
+              <BattlefieldCard battlefield={battlefield} key={battlefield.id} />
             );
           })}
         </Grid>

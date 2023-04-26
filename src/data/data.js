@@ -829,30 +829,43 @@ const ROUND_CONFIGS = [
     roundMax: 1,
     pointTotal: 250,
     numberOfTwists: 1,
+    battleDescriptors: ["Skirmish", "Duel"],
   },
   {
     roundMin: 2,
     roundMax: 4,
     pointTotal: 400,
     numberOfTwists: 1,
+    battleDescriptors: ["Skirmish", "Duel", "Melee", "Encounter"],
   },
   {
     roundMin: 5,
     roundMax: 9,
     pointTotal: 600,
     numberOfTwists: 1,
+    battleDescriptors: ["Encounter", "Attack", "Clash", "Battle"],
   },
   {
     roundMin: 10,
     roundMax: 14,
     pointTotal: 950,
     numberOfTwists: 2,
+    battleDescriptors: ["Attack", "Combat", "Struggle", "Assault", "Battle"],
   },
   {
     roundMin: 15,
     roundMax: 9999,
     pointTotal: 1200,
     numberOfTwists: 2,
+    battleDescriptors: [
+      "Attack",
+      "Battle",
+      "Onslaught",
+      "Siege",
+      "War",
+      "Assault",
+      "Battle",
+    ],
   },
 ];
 
