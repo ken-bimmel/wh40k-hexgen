@@ -821,6 +821,8 @@ const UNIT_TYPES = [
   "Fast Attack",
   "Heavy Support",
   "Flyer",
+  "Dedicated Transport",
+  "Lord of War",
 ];
 
 const ROUND_CONFIGS = [
