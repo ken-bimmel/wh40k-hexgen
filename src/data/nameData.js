@@ -1958,55 +1958,97 @@ const SPACE_HULK_NAMES = [
   "Wyrmwood",
 ];
 
+const DEAD_WORLD = "Dead World";
+const DEATH_WORLD = "Death World";
+const DESERT_WORLD = "Desert World";
+const ICE_WORLD = "Ice World";
+const JUNGLE_WORLD = "Jungle World";
+const OCEAN_WORLD = "Ocean World";
+const ADEPTUS_ASTARTES_HOMEWORLD = "Adeptus Astartes Homeworld";
+const AGRI_WORLD = "Agri World";
+const CARDINAL_WORLD = "Cardinal World";
+const CEMETERY_WORLD = "Cemetery World";
+const CIVILISED_WORLD = "Civilised World";
+const FERAL_WORLD = "Feral World";
+const FEUDAL_WORLD = "Feudal World";
+const FORGE_WORLD = "Forge World";
+const HIVE_WORLD = "Hive World";
+const HUB_FORTRESS_WORLD = "Hub Fortress World";
+const INDUSTRIAL_WORLD = "Industrial World";
+const INQUISITORIAL_FORTRESS_WORLD = "Inquisitorial Fortress World";
+const KNIGHT_WORLD = "Knight World";
+const MINING_WORLD = "Mining World";
+const PARADISE_WORLD = "Paradise World";
+const PENAL_WORLD = "Penal World";
+const QUARRY_WORLD = "Quarry World";
+const RESEARCH_STATION = "Research Station World";
+const REPOSITORY_WORLD = "Repository World";
+const SENTINEL_WORLD = "Sentinel World";
+const SHRINE_WORLD = "Shrine World";
+const WAR_WORLD = "War World";
+const EXODITE_WORLD = "Exodite World";
+const TOMB_WORLD = "Tomb World";
+const MAIDEN_WORLD = "Maiden World";
+const CRONE_WORLD = "Crone World";
+const ORK_WORLD = "Ork World";
+const TAU_WORLD = "Tau World";
+const CRAFTWORLD = "Craftworld";
+const DAEMON_WORLD = "Daemon World";
+const HELL_FORGE = "Hell Forge";
+const FALLEN_KNIGHT_WORLD = "Fallen Knight World";
+const SPACE_HULK = "Space Hulk";
+
 const WORLDS = [
-  { title: "Dead World", names: DEAD_WORLD_NAMES },
-  { title: "Death World", names: DEATH_WORLD_NAMES },
-  { title: "Desert World", names: DESERT_WORLD_NAMES },
-  { title: "Ice World", names: ICE_WORLD_NAMES },
-  { title: "Jungle World", names: JUNGLE_WORLD_NAMES },
-  { title: "Ocean World", names: OCEAN_WORLD_NAMES },
+  { title: DEAD_WORLD, names: DEAD_WORLD_NAMES },
+  { title: DEATH_WORLD, names: DEATH_WORLD_NAMES },
+  { title: DESERT_WORLD, names: DESERT_WORLD_NAMES },
+  { title: ICE_WORLD, names: ICE_WORLD_NAMES },
+  { title: JUNGLE_WORLD, names: JUNGLE_WORLD_NAMES },
+  { title: OCEAN_WORLD, names: OCEAN_WORLD_NAMES },
   {
-    title: "Adeptus Astartes Homeworld",
+    title: ADEPTUS_ASTARTES_HOMEWORLD,
     names: ADEPTUS_ASTARTES_HOMEWORLD_NAMES,
   },
-  { title: "Agri World", names: AGRI_WORLD_NAMES },
-  { title: "Cardinal World", names: CARDINAL_WORLD_NAMES },
-  { title: "Cemetery World", names: CEMETERY_WORLD_NAMES },
-  { title: "Civilised World", names: CIVILISED_WORLD_NAMES },
-  { title: "Feral World", names: FERAL_WORLD_NAMES },
-  { title: "Feudal World", names: FEUDAL_WORLD_NAMES },
-  { title: "Forge World", names: FORGE_WORLD_NAMES },
-  { title: "Hive World", names: HIVE_WORLD_NAMES },
-  { title: "Hub Fortress World", names: HUB_FORTRESS_WORLD_NAMES },
-  { title: "Industrial World", names: INDUSTRIAL_WORLD_NAMES },
+  { title: AGRI_WORLD, names: AGRI_WORLD_NAMES },
+  { title: CARDINAL_WORLD, names: CARDINAL_WORLD_NAMES },
+  { title: CEMETERY_WORLD, names: CEMETERY_WORLD_NAMES },
+  { title: CIVILISED_WORLD, names: CIVILISED_WORLD_NAMES },
+  { title: FERAL_WORLD, names: FERAL_WORLD_NAMES },
+  { title: FEUDAL_WORLD, names: FEUDAL_WORLD_NAMES },
+  { title: FORGE_WORLD, names: FORGE_WORLD_NAMES },
+  { title: HIVE_WORLD, names: HIVE_WORLD_NAMES },
+  { title: HUB_FORTRESS_WORLD, names: HUB_FORTRESS_WORLD_NAMES },
+  { title: INDUSTRIAL_WORLD, names: INDUSTRIAL_WORLD_NAMES },
   {
-    title: "Inquisitorial Fortress World",
+    title: INQUISITORIAL_FORTRESS_WORLD,
     names: INQUISITORIAL_FORTRESS_WORLD_NAMES,
   },
-  { title: "Knight World", names: KNIGHT_WORLD_NAMES },
-  { title: "Mining World", names: MINING_WORLD_NAMES },
-  { title: "Paradise World", names: PARADISE_WORLD_NAMES },
-  { title: "Penal World", names: PENAL_WORLD_NAMES },
-  { title: "Quarry World", names: QUARRY_WORLD_NAMES },
+  { title: KNIGHT_WORLD, names: KNIGHT_WORLD_NAMES },
+  { title: MINING_WORLD, names: MINING_WORLD_NAMES },
+  { title: PARADISE_WORLD, names: PARADISE_WORLD_NAMES },
+  { title: PENAL_WORLD, names: PENAL_WORLD_NAMES },
+  { title: QUARRY_WORLD, names: QUARRY_WORLD_NAMES },
   {
-    title: "Research Station",
+    title: RESEARCH_STATION,
     names: RESEARCH_STATION_WORLD_NAMES,
   },
-  { title: "Repository World", names: REPOSITORY_WORLD_NAMES },
-  { title: "Sentinel World", names: SENTINEL_WORLD_NAMES },
-  { title: "Shrine World", names: SHRINE_WORLD_NAMES },
-  { title: "War World", names: WAR_WORLD_NAMES },
-  { title: "Exodite World", names: EXODITE_WORLD_NAMES },
-  { title: "Tomb World", names: TOMB_WORLD_NAMES },
-  { title: "Maiden World", names: MAIDEN_WORLD_NAMES },
-  { title: "Crone World", names: CRONE_WORLD_NAMES },
-  { title: "Ork World", names: ORK_WORLD_NAMES },
-  { title: "Tau World", names: TAU_WORLD_NAMES },
-  { title: "Craftworld", names: CRAFTWORLD_NAMES },
-  { title: "Daemon World", names: DAEMON_WORLD_NAMES },
-  { title: "Hell Forge", names: HELL_FORGE_NAMES },
-  { title: "Fallen Knight World", names: FALLEN_KNIGHT_WORLD_NAMES },
-  { title: "Space Hulks", names: SPACE_HULK_NAMES },
+  { title: REPOSITORY_WORLD, names: REPOSITORY_WORLD_NAMES },
+  { title: SENTINEL_WORLD, names: SENTINEL_WORLD_NAMES },
+  { title: SHRINE_WORLD, names: SHRINE_WORLD_NAMES },
+  { title: WAR_WORLD, names: WAR_WORLD_NAMES },
+  { title: EXODITE_WORLD, names: EXODITE_WORLD_NAMES },
+  { title: TOMB_WORLD, names: TOMB_WORLD_NAMES },
+  { title: MAIDEN_WORLD, names: MAIDEN_WORLD_NAMES },
+  { title: CRONE_WORLD, names: CRONE_WORLD_NAMES },
+  { title: ORK_WORLD, names: ORK_WORLD_NAMES },
+  { title: TAU_WORLD, names: TAU_WORLD_NAMES },
+  { title: CRAFTWORLD, names: CRAFTWORLD_NAMES },
+  { title: DAEMON_WORLD, names: DAEMON_WORLD_NAMES },
+  { title: HELL_FORGE, names: HELL_FORGE_NAMES },
+  { title: FALLEN_KNIGHT_WORLD, names: FALLEN_KNIGHT_WORLD_NAMES },
+  { title: SPACE_HULK, names: SPACE_HULK_NAMES },
 ];
 
-export { WORLDS };
+const STATION_WORLD_TYPES = [CRAFTWORLD, RESEARCH_STATION, SPACE_HULK];
+
+export { WORLDS, STATION_WORLD_TYPES };

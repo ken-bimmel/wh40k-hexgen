@@ -5,7 +5,7 @@ import {
   MAPS,
   UNIT_TYPES,
 } from "../data/data";
-import { WORLDS } from "../data/nameData";
+import { STATION_WORLD_TYPES, WORLDS } from "../data/nameData";
 import { getRandomFromArray, shuffleAndSelect } from "./randomization";
 
 function getBattlefieldLocation() {
@@ -22,6 +22,10 @@ function getBattlefieldLocation() {
 function generateBattleName(roundConfig, location) {
   const descriptor = getRandomFromArray(roundConfig.battleDescriptors);
   const locationName = location.worldName;
+  console.log(STATION_WORLD_TYPES, location.terrain);
+  if (STATION_WORLD_TYPES.includes(location.terrain)) {
+    return `${descriptor} on ${locationName}`;
+  }
   return `${descriptor} at ${locationName}`;
 }
 

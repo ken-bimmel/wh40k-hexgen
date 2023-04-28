@@ -1,16 +1,12 @@
 import { useState, useEffect } from "react";
 import { Grid, Card, Button, Typography } from "@mui/material";
 
-function BattlefieldCard({ battlefield }) {
+function BattlefieldCard({ battlefield, index }) {
   const [showTwist, setShowTwist] = useState(false);
   const [showMap, setShowMap] = useState(false);
 
   const toggleShowTwist = () => {
     setShowTwist(!showTwist);
-  };
-
-  const toggleShowMap = () => {
-    setShowMap(!showMap);
   };
 
   useEffect(() => {
@@ -20,7 +16,9 @@ function BattlefieldCard({ battlefield }) {
 
   return (
     <Card style={{ margin: "16px", padding: "16px" }}>
-      <Typography variant="h2">{battlefield.battleName}</Typography>
+      <Typography variant="h2">
+        {index + 1}. {battlefield.battleName}
+      </Typography>
       <Grid container direction="row" justifyContent="space-around" spacing={4}>
         <Grid item xs={6}>
           <Grid container direction="column" spacing={4}>

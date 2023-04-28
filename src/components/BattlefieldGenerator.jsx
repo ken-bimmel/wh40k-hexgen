@@ -79,9 +79,13 @@ function BattlefieldGenerator() {
       </Grid>
       {showBattlefield ? (
         <Grid item style={{ maxWidth: "100%" }}>
-          {battlefields.map((battlefield) => {
+          {battlefields.map((battlefield, index) => {
             return (
-              <BattlefieldCard battlefield={battlefield} key={battlefield.id} />
+              <BattlefieldCard
+                battlefield={battlefield}
+                key={battlefield.id}
+                index={index}
+              />
             );
           })}
         </Grid>
