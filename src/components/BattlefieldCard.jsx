@@ -17,7 +17,7 @@ function BattlefieldCard({ battlefield, index }) {
   return (
     <Card style={{ margin: "16px", padding: "16px" }}>
       <Typography variant="h2">
-        {index + 1}. {battlefield.battleName}
+        {index + 1}. {battlefield.battleFlavor.battleName}
       </Typography>
       <Grid container direction="row" justifyContent="space-around" spacing={4}>
         <Grid item xs={6}>
@@ -85,9 +85,9 @@ function BattlefieldCard({ battlefield, index }) {
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <Typography variant="h4">Battlefield Terrain</Typography>
-                  <Typography variant="h6" style={{ paddingLeft: "16px" }}>
-                    {battlefield.terrain}
+                  <Typography variant="h4">Battle Description</Typography>
+                  <Typography variant="body" style={{ paddingLeft: "16px" }}>
+                    {battlefield.battleFlavor.description}
                   </Typography>
                 </Grid>
               </Grid>

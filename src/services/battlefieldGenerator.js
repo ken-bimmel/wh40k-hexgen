@@ -10,29 +10,34 @@ import { getRandomFromArray, shuffleAndSelect } from "./randomization";
 
 function getBattlefieldLocation() {
   const worldType = getRandomFromArray(WORLDS);
-  const worldTypeTitle = worldType.title;
   const worldName = getRandomFromArray(worldType.names);
 
   return {
-    terrain: worldTypeTitle,
+    terrain: worldType.title,
     worldName,
+    description: worldType.description,
   };
 }
 
-function generateBattleName(roundConfig, location) {
+function generateBattleFlavor(roundConfig, location) {
   const descriptor = getRandomFromArray(roundConfig.battleDescriptors);
   const locationName = location.worldName;
-  console.log(STATION_WORLD_TYPES, location.terrain);
+  let battleName = `${descriptor} at ${locationName}`;
   if (STATION_WORLD_TYPES.includes(location.terrain)) {
-    return `${descriptor} on ${locationName}`;
+    battleName = `${descriptor} on ${locationName}`;
   }
-  return `${descriptor} at ${locationName}`;
+  const description = location.description.replace("BATTLE_NAME", battleName);
+
+  return {
+    battleName,
+    description,
+  };
 }
 
 function generateBattlefield(roundConfig) {
   const locationInfo = getBattlefieldLocation();
 
-  const battleName = generateBattleName(roundConfig, locationInfo);
+  const battleFlavor = generateBattleFlavor(roundConfig, locationInfo);
   const twists = shuffleAndSelect(TWISTS, roundConfig.numberOfTwists);
   const primaryObjective = getRandomFromArray(PRIMARY_OBJECTIVES);
   const secondaryObjective = getRandomFromArray(SECONDARY_OBJECTIVES);
@@ -49,7 +54,7 @@ function generateBattlefield(roundConfig) {
     rewardUnitType,
     map,
     pointTotal: roundConfig.pointTotal,
-    battleName,
+    battleFlavor,
     id: crypto.randomUUID(),
   };
 }

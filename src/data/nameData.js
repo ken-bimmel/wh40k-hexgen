@@ -1998,55 +1998,281 @@ const HELL_FORGE = "Hell Forge";
 const FALLEN_KNIGHT_WORLD = "Fallen Knight World";
 const SPACE_HULK = "Space Hulk";
 
+const DEAD_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Dead World, with combatants fighting through desolate wastelands filled with the ruins of past civilizations. The sound of swirling dust and the crunch of bones mixes with the crackle of energy weapons as each side battles for control of the planet's forgotten resources. The combatants must navigate the treacherous terrain and avoid getting caught in the crossfire of the planet's deadly hazards as they fight for victory.";
+const DEATH_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME rages on the unforgiving, Death World terrain. The combatants struggle to gain an upper hand amidst the poisonous miasma and venomous flora that infest the battlefield. Thunderous blasts echo across the landscape as each side unleashes devastating firepower in a bid to secure their objectives. The combatants, clad in powered armor, dodge and weave between razor-sharp vines and toxic puddles, battling against the lethal environment as much as each other. The fight seems endless, with neither side able to gain a decisive advantage, and the fate of Olethros remains uncertain as the battle continues to rage.";
+const DESERT_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place in the midst of a blistering sandstorm on a harsh, Desert World. The combatants are barely visible through the swirling sands as they engage in a deadly struggle for control of the arid terrain. Explosions and gunfire punctuate the howling wind as each side fights tooth and nail for supremacy. The unforgiving environment offers little respite as the combatants struggle to adapt to the harsh conditions, pushing themselves to the limit to achieve their objectives. The outcome of the battle hangs in the balance as the sandstorm rages on, and only the strongest and most determined combatants will emerge victorious.";
+const ICE_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a frigid Ice World, with the combatants battling through blizzards and treacherous ice fields. The clanging of metal against ice echoes across the frozen wasteland as each side fights to dominate the icy terrain. The biting cold is as much an enemy as the opposing forces, and only the strongest and most resilient combatants can survive in this unforgiving environment.";
+const JUNGLE_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME unfolds in the sweltering heat of a Jungle World, with combatants struggling to navigate dense foliage and avoid deadly traps. The sharp sound of gunfire reverberates through the thick underbrush as each side fights for control of the hostile environment. Poisonous plants and hidden predators pose a constant threat, and the combatants must stay on guard to avoid being ambushed by their foes.";
+const OCEAN_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place in the depths of an Ocean World, with combatants battling through murky depths and against powerful currents. Explosions and the crackle of energy weapons punctuate the sound of rushing water as each side tries to gain the upper hand. Hostile sea creatures pose a constant threat, and the combatants must fight to survive as much as to achieve their objectives. The battlefield is ever-changing, with shifting currents and unpredictable tides adding to the chaos of the fight.";
+const ADEPTUS_ASTARTES_HOMEWORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME unfolds on the Adeptus Astartes homeworld, with combatants battling amidst towering spires and fortified bunkers. The clanging of ceramite against metal and the roar of engines fills the air as each side fights for supremacy. The terrain is unforgiving, but the combatants are skilled and determined, willing to do whatever it takes to emerge victorious.";
+const AGRI_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on an Agri World, with combatants navigating fields of crops and fortified silos. The sound of gunfire echoes across the fertile plains as each side fights for control of the vital food-producing planet. The stakes are high, and the combatants must fight with everything they have to secure victory.";
+const CARDINAL_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME unfolds on the Cardinal Worlds, with combatants fighting for control of vital ecclesiastical sites and holy relics. The sound of prayer mixes with the roar of gunfire as each side battles for dominance on the sacred planets. The stakes are high, and the combatants are skilled and determined, willing to do whatever it takes to emerge victorious.";
+const CEMETERY_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME unfolds in a Cemetery, with combatants fighting amidst crumbling tombs and overgrown graveyards. The eerie silence is broken by the sharp sound of gunfire and the clash of metal as each side battles for control of the site. The stakes are unknown, but the combatants fight on regardless, driven by a fierce determination to emerge victorious.";
+const CIVILISED_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Civilized World, with combatants battling through bustling streets and towering skyscrapers. The sound of explosions and the crackle of energy weapons fill the air as each side fights for control of the sprawling metropolis. The combatants must navigate the maze-like cityscape and avoid harming innocent bystanders as they fight to achieve their objectives.";
+const FERAL_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Feral World, with combatants battling through dense jungles and harsh wilderness. The sound of primitive weapons mixes with the roar of engines as each side fights for control of the untamed planet. The combatants must contend with dangerous predators and harsh natural hazards as they fight for supremacy.";
+const FEUDAL_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME unfolds on a Feudal World, with combatants fighting with swords and primitive firearms amidst castles and fortified keeps. The sound of clashing steel fills the air as each side fights for control of the feudal planet. The combatants must navigate treacherous terrain and outwit cunning traps to emerge victorious.";
+const FORGE_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Forge World, with combatants battling amidst towering factories and smoldering foundries. The sound of metal against metal and the hiss of hydraulic systems mix with the roar of gunfire as each side fights for control of the vital manufacturing planet. The combatants must contend with hazardous industrial environments and avoid causing catastrophic damage to the planet's infrastructure as they fight for victory.";
+const HIVE_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME unfolds on a Hive World, with combatants fighting through crowded streets and towering spires. The sound of gunfire and the hum of machinery mix with the cacophony of billions of voices as each side battles for dominance on the sprawling planet. The combatants must navigate the labyrinthine cityscape and avoid harming innocent civilians as they fight for control of the hive.";
+const HUB_FORTRESS_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Hub Fortress World, with combatants fighting for control of vital interstellar transportation hubs and heavily fortified space stations. The sound of laser cannons and the hum of energy shields mix with the roar of engines as each side battles for dominance in orbit around the planet. The combatants must contend with zero-gravity environments and sophisticated defense systems as they fight for victory.";
+const INDUSTRIAL_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on an Inquisitorial World, with combatants fighting through fortified bunkers and underground vaults. The sound of boltguns and the hiss of plasma fire mixes with the low rumble of powerful engines as each side battles for control of the highly secured planet. The combatants must navigate treacherous traps and fend off highly trained security forces to achieve their objectives.";
+const INQUISITORIAL_FORTRESS_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME unfolds on an Inquisitorial Fortress World, with combatants battling through labyrinthine corridors and heavily fortified walls. The sound of explosive charges and the crackle of energy shields fills the air as each side fights for control of the highly defended planet. The combatants must contend with formidable security measures and outwit cunning defenses to emerge victorious.";
+const KNIGHT_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Knight World, with combatants fighting through medieval castles and fortified keeps. The sound of chainblades and the roar of engines mixes with the clashing of metal as each side battles for dominance on the feudal planet. The combatants must navigate treacherous terrain and outmaneuver highly skilled knight pilots to emerge victorious.";
+const MINING_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME unfolds on a Mining World, with combatants fighting through massive ore-processing plants and underground mines. The sound of mining drills and the rumble of explosive charges mixes with the roar of gunfire as each side battles for control of the resource-rich planet. The combatants must contend with hazardous mining conditions and avoid causing catastrophic damage to the planet's infrastructure as they fight for victory.";
+const PARADISE_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Paradise World, with combatants fighting through idyllic forests and crystal-clear rivers. The sound of birdsong and the rustle of leaves mixes with the crackle of energy weapons as each side battles for control of the pristine planet. The combatants must navigate the breathtaking natural landscapes and avoid causing undue harm to the planet's delicate ecosystem as they fight for victory.";
+const PENAL_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Penal World, with combatants fighting through overcrowded prison blocks and harsh labor camps. The sound of shivs and makeshift weapons mixes with the gunfire as each side battles for control of the planet. The combatants must navigate the treacherous prison environment and avoid getting caught in the crossfire of rival prison gangs.";
+const QUARRY_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME unfolds on a Quarry World, with combatants fighting through vast open-pit mines and towering rock formations. The sound of explosive charges and the rumble of mining equipment mixes with the crackle of gunfire as each side battles for control of the planet's valuable resources. The combatants must contend with hazardous mining conditions and avoid causing catastrophic damage to the planet's fragile ecosystem as they fight for victory.";
+const RESEARCH_STATION_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Research Station, with combatants fighting through laboratories and high-tech research facilities. The sound of scientific equipment and the hum of energy fields mixes with the crackle of energy weapons as each side battles for control of the cutting-edge technology on the station. The combatants must navigate the complex research environment and avoid causing irreparable damage to the valuable scientific equipment as they fight for victory.";
+const REPOSITORY_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME unfolds on a Repository World, with combatants fighting through vast archives and secure vaults filled with priceless knowledge and technology. The sound of rustling parchment and the hum of powerful security measures mixes with the crackle of energy weapons as each side battles for control of the planet's vast storehouses of information. The combatants must navigate the labyrinthine archives and avoid destroying the priceless knowledge contained within as they fight for victory.";
+const SENTINEL_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Sentinel World, with combatants fighting through heavily fortified bastions and imposing citadels. The sound of clanging metal and the rumble of engines mixes with the crackle of energy weapons as each side battles for control of the planet's critical strategic locations. The combatants must navigate the imposing fortifications and outmaneuver the skilled sentinel defenders as they fight for victory.";
+const SHRINE_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Shrine World, with combatants fighting through majestic cathedrals and holy sites dedicated to the worship of the Emperor. The sound of chanting and the peal of church bells mixes with the crackle of energy weapons as each side battles for control of the planet's sacred shrines. The combatants must navigate the ornate sanctuaries and avoid causing irreverent damage to the planet's holy sites as they fight for victory.";
+const WAR_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME unfolds on a War World, with combatants fighting through brutal war zones and scorched battlefields. The sound of artillery fire and the roar of engines mixes with the crackle of energy weapons as each side battles for control of the planet's critical strategic locations. The combatants must navigate the treacherous war zones and avoid getting caught in the crossfire of rival factions as they fight for victory.";
+const EXODITE_WORLD_BATTLE_DESCRIPTION =
+  "he BATTLE_NAME takes place on an Exodite World, with combatants fighting through dense forests and verdant wilderness. The sound of wild beasts and the rustling of leaves mixes with the crackle of energy weapons as each side battles for control of the planet's untamed wilderness. The combatants must navigate the dense foliage and avoid causing catastrophic damage to the planet's delicate ecosystem as they fight for victory.";
+const TOMB_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME unfolds on a Tomb World, with combatants fighting through ancient ruins and ominous crypts filled with the slumbering remains of long-dead civilizations. The sound of ominous whispers and the clang of rusted machinery mixes with the crackle of energy weapons as each side battles for control of the planet's ancient and mysterious relics. The combatants must navigate the treacherous ruins and avoid awakening the wrath of the planet's dormant guardians as they fight for victory.";
+const MAIDEN_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Maiden World, with combatants fighting through serene forests and crystal clear lakes. The sound of delicate chimes and the trill of exotic birds mixes with the crackle of energy weapons as each side battles for control of the planet's lush and pristine environment. The combatants must navigate the idyllic wilderness and avoid causing irreparable damage to the planet's harmonious ecosystem as they fight for victory.";
+const CRONE_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Crone World, with combatants fighting through twisted and corrupted landscapes. The sound of agonized screams and the gnashing of teeth mixes with the crackle of energy weapons as each side battles for control of the planet's dark and malevolent power. The combatants must navigate the hazardous terrain and avoid falling victim to the planet's horrific mutations as they fight for victory.";
+const ORK_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME unfolds on an Ork World, with combatants fighting through sprawling fortresses and ramshackle settlements. The sound of boisterous laughter and the roar of engines mixes with the crackle of energy weapons as each side battles for control of the planet's crude and anarchic society. The combatants must navigate the hazardous terrain and avoid getting swarmed by the planet's unruly hordes as they fight for victory.";
+const TAU_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Tau World, with combatants fighting through futuristic cities and high-tech fortifications. The sound of advanced weaponry and the hum of drones mixes with the crackle of energy weapons as each side battles for control of the planet's advanced and efficient society. The combatants must navigate the cutting-edge technology and avoid getting caught in the crossfire of the planet's well-coordinated defenses as they fight for victory.";
+const CRAFTWORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME unfolds on a Craftworld, with combatants fighting through shimmering spires and ancient chambers filled with exotic technology. The sound of eldritch hums and the whisper of ancient machinery mixes with the crackle of energy weapons as each side battles for control of the planet's esoteric and enigmatic power. The combatants must navigate the alien technology and avoid getting ensnared by the planet's inscrutable customs as they fight for victory.";
+const DAEMON_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Daemon World, with combatants fighting through twisted and nightmarish landscapes filled with horrors beyond imagination. The sound of demented laughter and the howl of infernal winds mixes with the crackle of energy weapons as each side battles for control of the planet's chaotic and malevolent power. The combatants must navigate the treacherous terrain and avoid getting consumed by the planet's all-consuming madness as they fight for victory.";
+const HELL_FORGE_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Hell Forge, with combatants fighting through cavernous chambers filled with infernal machinery and rivers of molten metal. The sound of screeching metal and the roar of furnaces mixes with the crackle of energy weapons as each side battles for control of the planet's diabolical power. The combatants must navigate the treacherous terrain and avoid getting caught in the crossfire of the planet's hellish creations as they fight for victory.";
+const FALLEN_KNIGHT_WORLD_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME unfolds on a Fallen Knight World, with combatants fighting through ruins of once-mighty fortresses and corrupted temples. The sound of rusted armor and the clatter of blades mixes with the crackle of energy weapons as each side battles for control of the planet's tarnished and dishonored legacy. The combatants must navigate the treacherous ruins and avoid getting ambushed by the planet's dishonorable knights as they fight for victory.";
+const SPACE_HULK_BATTLE_DESCRIPTION =
+  "The BATTLE_NAME takes place on a Space Hulk, with combatants fighting through the twisted and unpredictable interior of a massive wrecked spacecraft. The sound of creaking metal and the hiss of vented air mixes with the crackle of energy weapons as each side battles for control of the planet's derelict and abandoned technology. The combatants must navigate the labyrinthine corridors and avoid getting lost or ambushed by the planet's strange and unpredictable environment as they fight for victory.";
+
 const WORLDS = [
-  { title: DEAD_WORLD, names: DEAD_WORLD_NAMES },
-  { title: DEATH_WORLD, names: DEATH_WORLD_NAMES },
-  { title: DESERT_WORLD, names: DESERT_WORLD_NAMES },
-  { title: ICE_WORLD, names: ICE_WORLD_NAMES },
-  { title: JUNGLE_WORLD, names: JUNGLE_WORLD_NAMES },
-  { title: OCEAN_WORLD, names: OCEAN_WORLD_NAMES },
+  {
+    title: DEAD_WORLD,
+    description: DEAD_WORLD_BATTLE_DESCRIPTION,
+    names: DEAD_WORLD_NAMES,
+  },
+  {
+    title: DEATH_WORLD,
+    description: DEATH_WORLD_BATTLE_DESCRIPTION,
+    names: DEATH_WORLD_NAMES,
+  },
+  {
+    title: DESERT_WORLD,
+    description: DESERT_WORLD_BATTLE_DESCRIPTION,
+    names: DESERT_WORLD_NAMES,
+  },
+  {
+    title: ICE_WORLD,
+    description: ICE_WORLD_BATTLE_DESCRIPTION,
+    names: ICE_WORLD_NAMES,
+  },
+  {
+    title: JUNGLE_WORLD,
+    description: JUNGLE_WORLD_BATTLE_DESCRIPTION,
+    names: JUNGLE_WORLD_NAMES,
+  },
+  {
+    title: OCEAN_WORLD,
+    description: OCEAN_WORLD_BATTLE_DESCRIPTION,
+    names: OCEAN_WORLD_NAMES,
+  },
   {
     title: ADEPTUS_ASTARTES_HOMEWORLD,
+    description: ADEPTUS_ASTARTES_HOMEWORLD_BATTLE_DESCRIPTION,
     names: ADEPTUS_ASTARTES_HOMEWORLD_NAMES,
   },
-  { title: AGRI_WORLD, names: AGRI_WORLD_NAMES },
-  { title: CARDINAL_WORLD, names: CARDINAL_WORLD_NAMES },
-  { title: CEMETERY_WORLD, names: CEMETERY_WORLD_NAMES },
-  { title: CIVILISED_WORLD, names: CIVILISED_WORLD_NAMES },
-  { title: FERAL_WORLD, names: FERAL_WORLD_NAMES },
-  { title: FEUDAL_WORLD, names: FEUDAL_WORLD_NAMES },
-  { title: FORGE_WORLD, names: FORGE_WORLD_NAMES },
-  { title: HIVE_WORLD, names: HIVE_WORLD_NAMES },
-  { title: HUB_FORTRESS_WORLD, names: HUB_FORTRESS_WORLD_NAMES },
-  { title: INDUSTRIAL_WORLD, names: INDUSTRIAL_WORLD_NAMES },
+  {
+    title: AGRI_WORLD,
+    description: AGRI_WORLD_BATTLE_DESCRIPTION,
+    names: AGRI_WORLD_NAMES,
+  },
+  {
+    title: CARDINAL_WORLD,
+    description: CARDINAL_WORLD_BATTLE_DESCRIPTION,
+    names: CARDINAL_WORLD_NAMES,
+  },
+  {
+    title: CEMETERY_WORLD,
+    description: CEMETERY_WORLD_BATTLE_DESCRIPTION,
+    names: CEMETERY_WORLD_NAMES,
+  },
+  {
+    title: CIVILISED_WORLD,
+    description: CIVILISED_WORLD_BATTLE_DESCRIPTION,
+    names: CIVILISED_WORLD_NAMES,
+  },
+  {
+    title: FERAL_WORLD,
+    description: FERAL_WORLD_BATTLE_DESCRIPTION,
+    names: FERAL_WORLD_NAMES,
+  },
+  {
+    title: FEUDAL_WORLD,
+    description: FEUDAL_WORLD_BATTLE_DESCRIPTION,
+    names: FEUDAL_WORLD_NAMES,
+  },
+  {
+    title: FORGE_WORLD,
+    description: FORGE_WORLD_BATTLE_DESCRIPTION,
+    names: FORGE_WORLD_NAMES,
+  },
+  {
+    title: HIVE_WORLD,
+    description: HIVE_WORLD_BATTLE_DESCRIPTION,
+    names: HIVE_WORLD_NAMES,
+  },
+  {
+    title: HUB_FORTRESS_WORLD,
+    description: HUB_FORTRESS_WORLD_BATTLE_DESCRIPTION,
+    names: HUB_FORTRESS_WORLD_NAMES,
+  },
+  {
+    title: INDUSTRIAL_WORLD,
+    description: INDUSTRIAL_WORLD_BATTLE_DESCRIPTION,
+    names: INDUSTRIAL_WORLD_NAMES,
+  },
   {
     title: INQUISITORIAL_FORTRESS_WORLD,
+    description: INQUISITORIAL_FORTRESS_WORLD_BATTLE_DESCRIPTION,
     names: INQUISITORIAL_FORTRESS_WORLD_NAMES,
   },
-  { title: KNIGHT_WORLD, names: KNIGHT_WORLD_NAMES },
-  { title: MINING_WORLD, names: MINING_WORLD_NAMES },
-  { title: PARADISE_WORLD, names: PARADISE_WORLD_NAMES },
-  { title: PENAL_WORLD, names: PENAL_WORLD_NAMES },
-  { title: QUARRY_WORLD, names: QUARRY_WORLD_NAMES },
+  {
+    title: KNIGHT_WORLD,
+    description: KNIGHT_WORLD_BATTLE_DESCRIPTION,
+    names: KNIGHT_WORLD_NAMES,
+  },
+  {
+    title: MINING_WORLD,
+    description: MINING_WORLD_BATTLE_DESCRIPTION,
+    names: MINING_WORLD_NAMES,
+  },
+  {
+    title: PARADISE_WORLD,
+    description: PARADISE_WORLD_BATTLE_DESCRIPTION,
+    names: PARADISE_WORLD_NAMES,
+  },
+  {
+    title: PENAL_WORLD,
+    description: PENAL_WORLD_BATTLE_DESCRIPTION,
+    names: PENAL_WORLD_NAMES,
+  },
+  {
+    title: QUARRY_WORLD,
+    description: QUARRY_WORLD_BATTLE_DESCRIPTION,
+    names: QUARRY_WORLD_NAMES,
+  },
   {
     title: RESEARCH_STATION,
+    description: RESEARCH_STATION_BATTLE_DESCRIPTION,
     names: RESEARCH_STATION_WORLD_NAMES,
   },
-  { title: REPOSITORY_WORLD, names: REPOSITORY_WORLD_NAMES },
-  { title: SENTINEL_WORLD, names: SENTINEL_WORLD_NAMES },
-  { title: SHRINE_WORLD, names: SHRINE_WORLD_NAMES },
-  { title: WAR_WORLD, names: WAR_WORLD_NAMES },
-  { title: EXODITE_WORLD, names: EXODITE_WORLD_NAMES },
-  { title: TOMB_WORLD, names: TOMB_WORLD_NAMES },
-  { title: MAIDEN_WORLD, names: MAIDEN_WORLD_NAMES },
-  { title: CRONE_WORLD, names: CRONE_WORLD_NAMES },
-  { title: ORK_WORLD, names: ORK_WORLD_NAMES },
-  { title: TAU_WORLD, names: TAU_WORLD_NAMES },
-  { title: CRAFTWORLD, names: CRAFTWORLD_NAMES },
-  { title: DAEMON_WORLD, names: DAEMON_WORLD_NAMES },
-  { title: HELL_FORGE, names: HELL_FORGE_NAMES },
-  { title: FALLEN_KNIGHT_WORLD, names: FALLEN_KNIGHT_WORLD_NAMES },
-  { title: SPACE_HULK, names: SPACE_HULK_NAMES },
+  {
+    title: REPOSITORY_WORLD,
+    description: REPOSITORY_WORLD_BATTLE_DESCRIPTION,
+    names: REPOSITORY_WORLD_NAMES,
+  },
+  {
+    title: SENTINEL_WORLD,
+    description: SENTINEL_WORLD_BATTLE_DESCRIPTION,
+    names: SENTINEL_WORLD_NAMES,
+  },
+  {
+    title: SHRINE_WORLD,
+    description: SHRINE_WORLD_BATTLE_DESCRIPTION,
+    names: SHRINE_WORLD_NAMES,
+  },
+  {
+    title: WAR_WORLD,
+    description: WAR_WORLD_BATTLE_DESCRIPTION,
+    names: WAR_WORLD_NAMES,
+  },
+  {
+    title: EXODITE_WORLD,
+    description: EXODITE_WORLD_BATTLE_DESCRIPTION,
+    names: EXODITE_WORLD_NAMES,
+  },
+  {
+    title: TOMB_WORLD,
+    description: TOMB_WORLD_BATTLE_DESCRIPTION,
+    names: TOMB_WORLD_NAMES,
+  },
+  {
+    title: MAIDEN_WORLD,
+    description: MAIDEN_WORLD_BATTLE_DESCRIPTION,
+    names: MAIDEN_WORLD_NAMES,
+  },
+  {
+    title: CRONE_WORLD,
+    description: CRONE_WORLD_BATTLE_DESCRIPTION,
+    names: CRONE_WORLD_NAMES,
+  },
+  {
+    title: ORK_WORLD,
+    description: ORK_WORLD_BATTLE_DESCRIPTION,
+    names: ORK_WORLD_NAMES,
+  },
+  {
+    title: TAU_WORLD,
+    description: TAU_WORLD_BATTLE_DESCRIPTION,
+    names: TAU_WORLD_NAMES,
+  },
+  {
+    title: CRAFTWORLD,
+    description: CRAFTWORLD_BATTLE_DESCRIPTION,
+    names: CRAFTWORLD_NAMES,
+  },
+  {
+    title: DAEMON_WORLD,
+    description: DAEMON_WORLD_BATTLE_DESCRIPTION,
+    names: DAEMON_WORLD_NAMES,
+  },
+  {
+    title: HELL_FORGE,
+    description: HELL_FORGE_BATTLE_DESCRIPTION,
+    names: HELL_FORGE_NAMES,
+  },
+  {
+    title: FALLEN_KNIGHT_WORLD,
+    description: FALLEN_KNIGHT_WORLD_BATTLE_DESCRIPTION,
+    names: FALLEN_KNIGHT_WORLD_NAMES,
+  },
+  {
+    title: SPACE_HULK,
+    description: SPACE_HULK_BATTLE_DESCRIPTION,
+    names: SPACE_HULK_NAMES,
+  },
 ];
 
 const STATION_WORLD_TYPES = [CRAFTWORLD, RESEARCH_STATION, SPACE_HULK];
