@@ -822,7 +822,7 @@ const UNIT_TYPES = [
   "Heavy Support",
   "Flyer",
   "Dedicated Transport",
-  "Lord of War",
+  // "Lord of War",
 ];
 
 const ROUND_CONFIGS = [
