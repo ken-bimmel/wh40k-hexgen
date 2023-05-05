@@ -79,7 +79,7 @@ function BattlefieldCard({ battlefield, index }) {
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <Typography variant="h4">Battle Points</Typography>
+                  <Typography variant="h4">Battle Size</Typography>
                   <Typography variant="h6" style={{ paddingLeft: "16px" }}>
                     {battlefield.pointTotal}
                   </Typography>
