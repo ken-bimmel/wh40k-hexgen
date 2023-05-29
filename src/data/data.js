@@ -816,14 +816,35 @@ const LOSER_REWARDS = [
 
 const UNIT_TYPES = [
   "HQ",
-  "Troop",
-  "Elite",
+  "Troops",
+  "Elites",
   "Fast Attack",
   "Heavy Support",
   "Flyer",
   "Dedicated Transport",
-  // "Lord of War",
 ];
+
+const BASIC_REWARDS = [
+  "HQ",
+  "Troops",
+  "Elite",
+  "Fast Attack",
+  "Heavy Support",
+  "Dedicated Transport/Flyer",
+];
+
+const ADVANCED_REWARDS = [
+  "HQ/Troops",
+  "Troops/Elites",
+  "Elites/HQ",
+  "Fast Attack/Heavy Support",
+  "Heavy Support/Dedicated Transport/Flyer",
+  "Dedicated Transport/Flyer/Fast Attack",
+  "Free Select",
+];
+
+const BASIC_POOL_NAME = "Basic Pool";
+const ADVANCED_POOL_NAME = "Advanced Pool";
 
 const ROUND_CONFIGS = [
   {
@@ -832,30 +853,55 @@ const ROUND_CONFIGS = [
     pointTotal: 250,
     numberOfTwists: 1,
     battleDescriptors: ["Skirmish", "Duel"],
+    rewardPool: BASIC_REWARDS,
+    rewardPoolName: BASIC_POOL_NAME,
   },
   {
     roundMin: 2,
-    roundMax: 4,
+    roundMax: 3,
     pointTotal: 400,
     numberOfTwists: 1,
     battleDescriptors: ["Skirmish", "Duel", "Melee", "Encounter"],
+    rewardPool: BASIC_REWARDS,
+    rewardPoolName: BASIC_POOL_NAME,
   },
   {
-    roundMin: 5,
-    roundMax: 9,
+    roundMin: 4,
+    roundMax: 5,
     pointTotal: 600,
     numberOfTwists: 1,
     battleDescriptors: ["Encounter", "Attack", "Clash", "Battle"],
+    rewardPool: BASIC_REWARDS,
+    rewardPoolName: BASIC_POOL_NAME,
+  },
+  {
+    roundMin: 6,
+    roundMax: 7,
+    pointTotal: 800,
+    numberOfTwists: 2,
+    battleDescriptors: ["Attack", "Combat", "Struggle", "Assault", "Battle"],
+    rewardPool: ADVANCED_REWARDS,
+    rewardPoolName: ADVANCED_POOL_NAME,
+  },
+  {
+    roundMin: 8,
+    roundMax: 9,
+    pointTotal: 1000,
+    numberOfTwists: 2,
+    battleDescriptors: [
+      "Attack",
+      "Battle",
+      "Onslaught",
+      "Siege",
+      "War",
+      "Assault",
+      "Battle",
+    ],
+    rewardPool: ADVANCED_REWARDS,
+    rewardPoolName: ADVANCED_POOL_NAME,
   },
   {
     roundMin: 10,
-    roundMax: 14,
-    pointTotal: 950,
-    numberOfTwists: 2,
-    battleDescriptors: ["Attack", "Combat", "Struggle", "Assault", "Battle"],
-  },
-  {
-    roundMin: 15,
     roundMax: 9999,
     pointTotal: 1200,
     numberOfTwists: 2,
@@ -868,6 +914,8 @@ const ROUND_CONFIGS = [
       "Assault",
       "Battle",
     ],
+    rewardPool: ADVANCED_REWARDS,
+    rewardPoolName: ADVANCED_POOL_NAME,
   },
 ];
 
@@ -884,4 +932,8 @@ export {
   MAPS,
   UNIT_TYPES,
   ROUND_CONFIGS,
+  BASIC_REWARDS,
+  ADVANCED_REWARDS,
+  BASIC_POOL_NAME,
+  ADVANCED_POOL_NAME,
 };

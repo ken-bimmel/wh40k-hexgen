@@ -3,7 +3,6 @@ import { Grid, Card, Button, Typography } from "@mui/material";
 
 function BattlefieldCard({ battlefield, index }) {
   const [showTwist, setShowTwist] = useState(false);
-  const [showMap, setShowMap] = useState(false);
 
   const toggleShowTwist = () => {
     setShowTwist(!showTwist);
@@ -11,7 +10,6 @@ function BattlefieldCard({ battlefield, index }) {
 
   useEffect(() => {
     setShowTwist(false);
-    setShowMap(false);
   }, [battlefield]);
 
   return (

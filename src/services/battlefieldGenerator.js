@@ -4,9 +4,39 @@ import {
   TWISTS,
   MAPS,
   UNIT_TYPES,
+  ADVANCED_POOL_NAME,
+  ADVANCED_REWARDS,
+  BASIC_POOL_NAME,
+  BASIC_REWARDS,
 } from "../data/data";
 import { STATION_WORLD_TYPES, WORLDS } from "../data/nameData";
+import { LOCAL_STORAGE_KEY } from "./constants";
 import { getRandomFromArray, shuffleAndSelect } from "./randomization";
+
+function generateRewardList(roundConfig, numberOfRewards = 2) {
+  const usedRewards = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [];
+  let rewards = [...roundConfig.rewardPool].filter(
+    (e) => !usedRewards.includes(e)
+  );
+
+  if (rewards.length < 1) {
+    if (roundConfig.rewardPoolName == ADVANCED_POOL_NAME) {
+      rewards = ADVANCED_REWARDS;
+    } else if (roundConfig.rewardPoolName == BASIC_POOL_NAME) {
+      rewards = BASIC_REWARDS;
+    }
+  } else if (rewards.length < 2) {
+    usedRewards.push(rewards[0]);
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(usedRewards));
+    const remainingRewards = shuffleAndSelect(usedRewards, numberOfRewards - 1);
+    return [rewards[0], ...remainingRewards];
+  }
+
+  const selectedRewards = shuffleAndSelect(rewards, numberOfRewards);
+  usedRewards.push(...selectedRewards);
+  localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(usedRewards));
+  return selectedRewards;
+}
 
 function getBattlefieldLocation() {
   const worldType = getRandomFromArray(WORLDS);
@@ -34,7 +64,7 @@ function generateBattleFlavor(roundConfig, location) {
   };
 }
 
-function generateBattlefield(roundConfig) {
+function generateBattlefield(roundConfig, reward = null) {
   const locationInfo = getBattlefieldLocation();
 
   const battleFlavor = generateBattleFlavor(roundConfig, locationInfo);
@@ -44,7 +74,7 @@ function generateBattlefield(roundConfig) {
   const terrain = locationInfo.terrain;
   const map = getRandomFromArray(MAPS);
 
-  const rewardUnitType = getRandomFromArray(UNIT_TYPES);
+  const rewardUnitType = reward ? reward : getRandomFromArray(UNIT_TYPES);
 
   return {
     twists,
@@ -59,4 +89,4 @@ function generateBattlefield(roundConfig) {
   };
 }
 
-export { generateBattlefield };
+export { generateBattlefield, generateRewardList };

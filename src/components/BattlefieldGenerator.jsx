@@ -1,8 +1,12 @@
 import { useState } from "react";
 import { Grid, TextField, Card, Button } from "@mui/material";
 import { ROUND_CONFIGS } from "../data/data";
-import { generateBattlefield } from "../services/battlefieldGenerator";
+import {
+  generateBattlefield,
+  generateRewardList,
+} from "../services/battlefieldGenerator";
 import BattlefieldCard from "./BattlefieldCard";
+import { LOCAL_STORAGE_KEY } from "../services/constants";
 
 const NUMBER_OF_BATTLEFIELDS_PER_ROUND = 2;
 
@@ -33,14 +37,22 @@ function BattlefieldGenerator() {
     setBattlefields([]);
 
     const roundConfig = getRoundConfig(roundNumber);
+    const rewards = generateRewardList(
+      roundConfig,
+      NUMBER_OF_BATTLEFIELDS_PER_ROUND
+    );
 
     const tempBattlefields = [];
     for (let i = 0; i < NUMBER_OF_BATTLEFIELDS_PER_ROUND; i++) {
-      tempBattlefields.push(generateBattlefield(roundConfig));
+      tempBattlefields.push(generateBattlefield(roundConfig, rewards[i]));
     }
 
     setBattlefields(tempBattlefields);
   };
+
+  function clearLeagueHistory() {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify([]));
+  }
 
   return (
     <Grid container direction="column" style={{ margin: 0 }}>
@@ -67,9 +79,14 @@ function BattlefieldGenerator() {
                     }
                   />
                 </Grid>
-                <Grid item>
+                <Grid item style={{ paddingRight: "16px" }}>
                   <Button variant="contained" onClick={generateRound}>
                     Generate a League Round
+                  </Button>
+                </Grid>
+                <Grid item>
+                  <Button variant="contained" onClick={clearLeagueHistory}>
+                    Clear League History
                   </Button>
                 </Grid>
               </Grid>
