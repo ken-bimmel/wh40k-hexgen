@@ -68,11 +68,30 @@ function generateBattlefield(roundConfig, reward = null) {
   const locationInfo = getBattlefieldLocation();
 
   const battleFlavor = generateBattleFlavor(roundConfig, locationInfo);
-  const twists = shuffleAndSelect(TWISTS, roundConfig.numberOfTwists);
   const primaryObjective = getRandomFromArray(PRIMARY_OBJECTIVES);
   const secondaryObjective = getRandomFromArray(SECONDARY_OBJECTIVES);
   const terrain = locationInfo.terrain;
   const map = getRandomFromArray(MAPS);
+
+  const twistsToSelect = shuffleAndSelect(
+    TWISTS,
+    roundConfig.numberOfTwists + 4
+  );
+
+  const twists = twistsToSelect.slice(0, roundConfig.numberOfTwists);
+  for (let twist of twists) {
+    if (twist.name === "Unrelenting Turmoil") {
+      twists.push(
+        ...twistsToSelect.slice(
+          roundConfig.numberOfTwists,
+          roundConfig.numberOfTwists + 2
+        )
+      );
+    }
+  }
+  // }
+
+  console.log(twists);
 
   const rewardUnitType = reward ? reward : getRandomFromArray(UNIT_TYPES);
 

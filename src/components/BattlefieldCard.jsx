@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { Grid, Card, Button, Typography } from "@mui/material";
 
 function BattlefieldCard({ battlefield, index }) {
-  const [showTwist, setShowTwist] = useState(false);
+  const [showTwist, setShowTwist] = useState(true);
 
   const toggleShowTwist = () => {
     setShowTwist(!showTwist);
   };
 
   useEffect(() => {
-    setShowTwist(false);
+    setShowTwist(true);
   }, [battlefield]);
 
   return (
@@ -29,15 +29,18 @@ function BattlefieldCard({ battlefield, index }) {
                 {battlefield.primaryObjective?.description}
               </Typography>
             </Grid>
-            <Grid item>
-              <Typography variant="h4">Secondary Objective</Typography>
-              <Typography variant="h6" style={{ paddingLeft: "16px" }}>
-                {battlefield.secondaryObjective?.name}
-              </Typography>
-              <Typography variant="body" style={{ paddingLeft: "16px" }}>
-                {battlefield.secondaryObjective?.description}
-              </Typography>
-            </Grid>
+            {battlefield.primaryObjective.id === "6" ||
+            battlefield.primaryObjective.id === "8" ? null : (
+              <Grid item>
+                <Typography variant="h4">Secondary Objective</Typography>
+                <Typography variant="h6" style={{ paddingLeft: "16px" }}>
+                  {battlefield.secondaryObjective?.name}
+                </Typography>
+                <Typography variant="body" style={{ paddingLeft: "16px" }}>
+                  {battlefield.secondaryObjective?.description}
+                </Typography>
+              </Grid>
+            )}
           </Grid>
         </Grid>
         <Grid item xs={6}>
