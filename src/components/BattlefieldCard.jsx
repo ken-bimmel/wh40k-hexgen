@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { Grid, Card, Button, Typography } from "@mui/material";
 
 function BattlefieldCard({ battlefield, index }) {
-  const [showTwist, setShowTwist] = useState(true);
+  const [showTwist, setShowTwist] = useState(false);
 
   const toggleShowTwist = () => {
     setShowTwist(!showTwist);
   };
 
   useEffect(() => {
-    setShowTwist(true);
+    setShowTwist(false);
   }, [battlefield]);
 
   return (
