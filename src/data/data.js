@@ -390,16 +390,16 @@ const PRIMARY_OBJECTIVES = [
       
     Starting from the second battle round, each player scores 1 victory point for each objective marker they control at the end of their  Command phase . The player with the most victory points at the end of the battle is the winner.`,
   },
-  {
-    id: "8",
-    name: "War of Attrition",
-    category: "Open War",
-    description: `Amidst the horror and carnage of battle, victory is sometimes a question of simple butchery.
+  // {
+  //   id: "8",
+  //   name: "War of Attrition",
+  //   category: "Open War",
+  //   description: `Amidst the horror and carnage of battle, victory is sometimes a question of simple butchery.
 
-    Each player adds up the Power Ratings or points values of all enemy units that have been destroyed during the battle. If players are not using Power Ratings or points values, add up the number of all enemy models that have been destroyed during the battle.  
-      
-    At the end of the fifth battle round, the player with the highest total is the winner (even if their own army has been completely destroyed).`,
-  },
+  //   Each player adds up the Power Ratings or points values of all enemy units that have been destroyed during the battle. If players are not using Power Ratings or points values, add up the number of all enemy models that have been destroyed during the battle.
+
+  //   At the end of the fifth battle round, the player with the highest total is the winner (even if their own army has been completely destroyed).`,
+  // },
   {
     id: "9",
     name: "Domination",
@@ -579,16 +579,16 @@ const TWISTS = [
 
     Models receive the benefit of light cover if they are more than 18" away from the attacking unit.`,
   },
-  {
-    name: "Blinding Sun",
-    description: `In a cloudless sky the suns rays blind those who must face it.
+  // {
+  //   name: "Blinding Sun",
+  //   description: `In a cloudless sky the suns rays blind those who must face it.
 
-    At the start of the first battle round, one player randomly selects one battlefield edge to determine the sun’s battlefield edge.  
-      
-    At the start of the third battle round, one player randomly selects one battlefield edge adjacent to the sun’s battlefield edge. That battlefield edge is now the sun’s battlefield edge.  
-      
-    Subtract 1 from hit rolls for ranged attacks that target units that are closer to the sun’s battlefield edge than the firing model is.`,
-  },
+  //   At the start of the first battle round, one player randomly selects one battlefield edge to determine the sun’s battlefield edge.
+
+  //   At the start of the third battle round, one player randomly selects one battlefield edge adjacent to the sun’s battlefield edge. That battlefield edge is now the sun’s battlefield edge.
+
+  //   Subtract 1 from hit rolls for ranged attacks that target units that are closer to the sun’s battlefield edge than the firing model is.`,
+  // },
   {
     name: "Inimical Atmosphere",
     description: `The chemistry of the planets atmosphere has an adverse effect on those present, compromising peak performance.
@@ -619,18 +619,18 @@ const TWISTS = [
 
     The range of all aura abilities is reduced to 2".`,
   },
-  {
-    name: "Indiscriminate Projectiles",
-    description: `Falling debris, burning meteors and orbital barrages rain down indiscriminately across the battlefield.
+  // {
+  //   name: "Indiscriminate Projectiles",
+  //   description: `Falling debris, burning meteors and orbital barrages rain down indiscriminately across the battlefield.
 
-    Each player rolls three D6 at the start of their turn. For each roll of 6, they can select one enemy unit on the battlefield and inflict D3 mortal wounds upon it, or 1 mortal wound if that unit is a CHARACTER with a Wounds characteristic of less than 10. Each unit can be selected no more than once per turn.`,
-  },
-  {
-    name: "Unrelenting Turmoil",
-    description: `Little respite or sanctuary is available across the galaxies of the 41st millennium.
+  //   Each player rolls three D6 at the start of their turn. For each roll of 6, they can select one enemy unit on the battlefield and inflict D3 mortal wounds upon it, or 1 mortal wound if that unit is a CHARACTER with a Wounds characteristic of less than 10. Each unit can be selected no more than once per turn.`,
+  // },
+  // {
+  //   name: "Unrelenting Turmoil",
+  //   description: `Little respite or sanctuary is available across the galaxies of the 41st millennium.
 
-    Draw two more Twist cards and use both.`,
-  },
+  //   Draw two more Twist cards and use both.`,
+  // },
   {
     name: "Last Stand",
     description: `Retreat is not an option. Your forces must fight to the last.
@@ -849,17 +849,17 @@ const ADVANCED_POOL_NAME = "Advanced Pool";
 const ROUND_CONFIGS = [
   {
     roundMin: 1,
-    roundMax: 1,
-    pointTotal: 250,
+    roundMax: 2,
+    pointTotal: 400,
     numberOfTwists: 1,
     battleDescriptors: ["Skirmish", "Duel"],
     rewardPool: BASIC_REWARDS,
     rewardPoolName: BASIC_POOL_NAME,
   },
   {
-    roundMin: 2,
+    roundMin: 3,
     roundMax: 3,
-    pointTotal: 400,
+    pointTotal: 600,
     numberOfTwists: 1,
     battleDescriptors: ["Skirmish", "Duel", "Melee", "Encounter"],
     rewardPool: BASIC_REWARDS,
@@ -867,26 +867,44 @@ const ROUND_CONFIGS = [
   },
   {
     roundMin: 4,
+    roundMax: 4,
+    pointTotal: 700,
+    numberOfTwists: 1,
+    battleDescriptors: ["Skirmish", "Duel", "Melee", "Encounter"],
+    rewardPool: BASIC_REWARDS,
+    rewardPoolName: BASIC_POOL_NAME,
+  },
+  {
+    roundMin: 5,
     roundMax: 5,
-    pointTotal: 600,
+    pointTotal: 800,
+    numberOfTwists: 1,
+    battleDescriptors: ["Skirmish", "Duel", "Melee", "Encounter"],
+    rewardPool: BASIC_REWARDS,
+    rewardPoolName: BASIC_POOL_NAME,
+  },
+  {
+    roundMin: 6,
+    roundMax: 6,
+    pointTotal: 900,
     numberOfTwists: 1,
     battleDescriptors: ["Encounter", "Attack", "Clash", "Battle"],
     rewardPool: BASIC_REWARDS,
     rewardPoolName: BASIC_POOL_NAME,
   },
   {
-    roundMin: 6,
-    roundMax: 7,
-    pointTotal: 800,
+    roundMin: 7,
+    roundMax: 8,
+    pointTotal: 1000,
     numberOfTwists: 2,
     battleDescriptors: ["Attack", "Combat", "Struggle", "Assault", "Battle"],
     rewardPool: ADVANCED_REWARDS,
     rewardPoolName: ADVANCED_POOL_NAME,
   },
   {
-    roundMin: 8,
-    roundMax: 9,
-    pointTotal: 1000,
+    roundMin: 9,
+    roundMax: 10,
+    pointTotal: 1200,
     numberOfTwists: 2,
     battleDescriptors: [
       "Attack",
@@ -901,9 +919,9 @@ const ROUND_CONFIGS = [
     rewardPoolName: ADVANCED_POOL_NAME,
   },
   {
-    roundMin: 10,
+    roundMin: 11,
     roundMax: 9999,
-    pointTotal: 1200,
+    pointTotal: 1400,
     numberOfTwists: 2,
     battleDescriptors: [
       "Attack",
